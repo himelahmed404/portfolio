@@ -1,0 +1,14 @@
+{
+  "items": [
+    { "title": "Independent full-stack developer", "date": "2026 — PRESENT", "description": "Ship full-stack applications end to end across Next.js, Express and MongoDB. Most recently MediGo and Sportnest." },
+    { "title": "Project manager — DYBWEB", "date": "JUL 2025 — MAR 2026", "description": "Delivered 2 client web and e-commerce builds (React, Node, MongoDB, Stripe) with a 4-person team. Every scheduled deadline met." },
+    { "title": "Independent security researcher", "date": "2024 — 2025", "description": "Vulnerability assessment and web application penetration testing. Hardened WordPress and custom deployments against the OWASP Top 10." },
+    { "title": "Diploma, Computer Science & Technology", "date": "2023 — 2027", "description": "Munshiganj Polytechnic Institute, Bangladesh." }
+  ],
+  "certifications": [
+    "EC-Council Essentials — Network Defense (NDE), Ethical Hacking (EHE)",
+    "Google Cybersecurity Certificate — 4 courses (Coursera)",
+    "Programming Hero — Web Development L1, L2 in progress",
+    "Purple Teaming Fundamentals — CyberWarFare Labs"
+  ]
+}

@@ -1,0 +1,81 @@
+export type ProjectStatus = "live" | "shipped" | "wip";
+
+export interface StackTag {
+  label: string;
+}
+
+export interface ProjectSummary {
+  slug: string;
+  title: string;
+  claim: string;
+  role: string;
+  shotLabel: string;
+  externalLabel?: string;
+  externalHref?: string;
+  statusLabel: string;
+  status: ProjectStatus;
+  stack: string[];
+}
+
+export interface CaseStudyImage {
+  shotLabel: string;
+  caption: string;
+}
+
+export interface CaseStudy {
+  slug: string;
+  index: number;
+  title: string;
+  claim: string;
+  meta: string[];
+  externalHref?: string;
+  externalLabel?: string;
+  statusLabel: string;
+  rankLabel?: string;
+  heroShotLabel: string;
+  heroCaption: string;
+  problem: string[];
+  built: string[];
+  images: CaseStudyImage[];
+  change: string[];
+}
+
+export interface Writeup {
+  slug: string;
+  index: number;
+  tag: string;
+  readTime: string;
+  badge?: string;
+  rank?: string;
+  title: string;
+  dek: string;
+  body: string[];
+}
+
+export interface RecordRow {
+  rank: string;
+  name: string;
+  tag: string;
+}
+
+export interface StackGroup {
+  label: string;
+  items: string[];
+}
+
+export interface ExperienceItem {
+  title: string;
+  date: string;
+  description: string;
+}
+
+export interface SiteContent {
+  name: string;
+  role: string;
+  location: string;
+  email: string;
+  phone: string;
+  github: string;
+  linkedin: string;
+  domain: string;
+}

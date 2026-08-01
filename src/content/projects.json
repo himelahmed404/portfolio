@@ -1,0 +1,49 @@
+[
+  {
+    "slug": "toolify3d",
+    "title": "Toolify3D",
+    "claim": "Upload an STL, get a price. No human in the loop.",
+    "role": "Solo build — customer client, admin dashboard and API deployed as three services.",
+    "shotLabel": "Toolify3D quote screen",
+    "externalLabel": "TOOLIFY3D.COM",
+    "externalHref": "https://toolify3d.com",
+    "statusLabel": "LIVE",
+    "status": "live",
+    "stack": ["REACT", "NODE", "EXPRESS", "MONGODB"]
+  },
+  {
+    "slug": "medigo",
+    "title": "MediGo",
+    "claim": "Real-time patient-to-doctor matching. 2nd of 135.",
+    "role": "Three-person team — I built the Socket.io request layer and the location matching.",
+    "shotLabel": "MediGo matching screen",
+    "externalLabel": "DEMO ON REQUEST",
+    "statusLabel": "SHIPPED",
+    "status": "shipped",
+    "stack": ["REACT", "SOCKET.IO", "SUPABASE", "OPENSTREETMAP"]
+  },
+  {
+    "slug": "cybercell",
+    "title": "NBA Cyber-Cell",
+    "claim": "Harassment reports, triaged and tracked. National rollout.",
+    "role": "Lead developer — reporter submission form feeding an admin triage queue with recorded actions.",
+    "shotLabel": "Cyber-Cell triage dashboard",
+    "externalLabel": "CYBER-CELL-NBA",
+    "externalHref": "https://cyber-cell-nba.vercel.app",
+    "statusLabel": "IN DEVELOPMENT",
+    "status": "wip",
+    "stack": ["MONGODB", "EXPRESS", "REACT", "NODE"]
+  },
+  {
+    "slug": "sportnest",
+    "title": "Sportnest",
+    "claim": "Booking platform with JWTs verified against a remote JWKS endpoint.",
+    "role": "Solo build — ownership-scoped permissions, token signing kept off the application server.",
+    "shotLabel": "Sportnest booking screen",
+    "externalLabel": "SPORTNEST-HIMEL",
+    "externalHref": "https://sportnest-himel.vercel.app",
+    "statusLabel": "LIVE",
+    "status": "live",
+    "stack": ["NEXT.JS 16", "REACT 19", "EXPRESS", "JOSE"]
+  }
+]

@@ -1,0 +1,7 @@
+[
+  { "label": "LANGUAGES", "items": ["JAVASCRIPT ES6+", "TYPESCRIPT", "HTML5", "CSS3"] },
+  { "label": "FRONTEND", "items": ["REACT 19", "NEXT.JS 16", "REACT ROUTER", "TAILWIND", "SHADCN UI", "HEROUI", "FRAMER MOTION", "RECHARTS"] },
+  { "label": "BACKEND + DATA", "items": ["NODE.JS", "EXPRESS", "REST API DESIGN", "JWT + JWKS", "MONGODB"] },
+  { "label": "SECURITY", "items": ["OWASP TOP 10", "PENETRATION TESTING", "BURP SUITE", "NMAP", "WIRESHARK"] },
+  { "label": "TOOLS + DEPLOYMENT", "items": ["GIT", "VERCEL", "NETLIFY", "POSTMAN", "LINUX", "FIGMA", "WORDPRESS", "OPENSTREETMAP"] }
+]

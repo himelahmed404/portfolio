@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink-900: #1e2124;
+  --color-ink-800: #262a2e;
+  --color-ink-700: #30353a;
+  --color-ink-600: #3c4248;
+  --color-ink-400: #6b747c;
+  --color-ink-300: #98a0a6;
+  --color-ink-100: #e7e5e2;
+
+  --color-teal-500: #4f97a3;
+  --color-teal-300: #7db8c2;
+  --color-brass-500: #c2a165;
+
+  --color-verified: #6e9e7e;
+  --color-wip: #b08a4e;
+
+  --font-display: var(--font-archivo), sans-serif;
+  --font-body: var(--font-instrument), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+
+  --ease-out-print: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-layer: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* the rail + docked band names collapse below this width, matching the
+     original single-breakpoint layout rule */
+  --breakpoint-layout: 900px;
+}
+
+/* Tailwind's utilities are emitted inside @layer utilities; per the CSS
+   Cascade Layers spec, unlayered rules always win over layered ones
+   regardless of specificity. Without this @layer base wrapper, this
+   plain `a { color }` default would silently beat every text-* utility
+   applied to an <a> (exactly what happened to the button components
+   before this was added — their text-ink-100 was losing to this). */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--color-ink-900);
+    color: var(--color-ink-100);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: var(--color-teal-500);
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--color-teal-300);
+  }
+
+  ::selection {
+    background: var(--color-teal-500);
+    color: var(--color-ink-900);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-teal-300);
+    outline-offset: 2px;
+  }
+}
+
+.thin-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-ink-600) transparent;
+}
+.thin-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: var(--color-ink-600);
+  border-radius: 4px;
+}
