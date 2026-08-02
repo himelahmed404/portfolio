@@ -12,7 +12,7 @@ const { items: experience, certifications } = experienceData as {
 
 export function StackSection() {
   return (
-    <div className="mx-auto grid max-w-[1200px] grid-cols-1 items-start gap-8 layout:grid-cols-2 layout:gap-14">
+    <div className="mx-auto grid max-w-[1200px] mt-8 sm:mt-10 grid-cols-1 items-start gap-8 layout:grid-cols-2 layout:gap-14">
       <div>
         <Reveal className="mb-[18px] font-mono text-[11px] font-medium tracking-[0.14em] text-teal-500">STACK</Reveal>
         <div className="flex flex-col gap-4">

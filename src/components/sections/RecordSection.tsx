@@ -6,7 +6,7 @@ const { rows, summary } = recordData as { rows: RecordRow[]; summary: string };
 
 export function RecordSection() {
   return (
-    <div className="mx-auto w-full max-w-[1000px]">
+    <div className="mx-auto w-full max-w-[1000px] mt-10 sm:mt-12 md:mt-16 lg:mt-20">
       <Reveal className="mb-7 font-mono text-[11px] font-medium tracking-[0.14em] text-brass-500">
         COMPETITION RECORD
       </Reveal>

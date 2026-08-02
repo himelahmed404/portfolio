@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import siteData from "@/content/site.json";
 import type { SiteContent } from "@/lib/types";
 import { Rail } from "@/components/layout/Rail";
@@ -37,8 +38,14 @@ const LAYERS = [
 
 const LAYER_ARIA = ["Base", "Build", "Record", "Break", "Stack", "Operator", "Contact"];
 
+const OPERATOR_INDEX = 5;
+
 export default function Home() {
   const { z, active, registerSection, goTo } = useLayerScroll(LAYERS.length, BAND_HEIGHT);
+
+  useEffect(() => {
+    if (window.location.hash === "#operator") goTo(OPERATOR_INDEX);
+  }, [goTo]);
 
   return (
     <DocOverlayProvider>

@@ -79,3 +79,19 @@ export interface SiteContent {
   linkedin: string;
   domain: string;
 }
+
+export interface FramePhoto {
+  src: string;
+  w: number;
+  h: number;
+  alt: string;
+  blur: string;
+}
+
+export type FrameRowType = "full" | "pair" | "trio" | "solo";
+
+export interface FrameRowData {
+  type: FrameRowType;
+  items: number[];
+  align?: "left" | "right";
+}

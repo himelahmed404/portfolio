@@ -1,10 +1,11 @@
+import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
 import { LinkButton } from "@/components/ui/Button";
 import type { SiteContent } from "@/lib/types";
 
 export function ContactSection({ site }: { site: SiteContent }) {
   return (
-    <div className="mx-auto w-full max-w-[900px]">
+    <div className="mx-auto w-full max-w-[900px] mt-8 sm:mt-10">
       <Reveal className="mb-5 font-mono text-[11px] font-medium tracking-[0.14em] text-teal-500">
         CONTACT · PRINT COMPLETE
       </Reveal>
@@ -38,6 +39,9 @@ export function ContactSection({ site }: { site: SiteContent }) {
           {site.name.toUpperCase()} · {site.location.toUpperCase()}
         </span>
         <span>{site.phone}</span>
+        <Link href="/frame" className="text-ink-400 hover:text-teal-500">
+          Photography
+        </Link>
         <span>07 LAYERS · Z 1.00 · PRINT COMPLETE</span>
       </Reveal>
     </div>

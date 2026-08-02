@@ -1,0 +1,110 @@
+{
+  "photos": [
+    {
+      "src": "/frame/macro-1.jpeg",
+      "w": 1600,
+      "h": 957,
+      "alt": "Two iridescent green shield bugs with black spots climbing dark tree bark",
+      "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAKABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABAIF/8QAIxAAAQIFAwUAAAAAAAAAAAAAAQIDAAQREjEUIiMhQWGhsf/EABUBAQEAAAAAAAAAAAAAAAAAAAAD/8QAFxEBAQEBAAAAAAAAAAAAAAAAAREAAv/aAAwDAQACEQMRAD8AqfcVpm1IdKbUAUJpj7mBoteb5DUHvjrD543uO3btxzGc2ONXhNR7iQQmck3/2Q=="
+    },
+    {
+      "src": "/frame/nature.jpeg",
+      "w": 3626,
+      "h": 3000,
+      "alt": "Sunset over a flooded river channel, a small boat crossing still orange water",
+      "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAgAG/8QAIBAAAgEEAQUAAAAAAAAAAAAAAQIDAAQFESESIkFigf/EABQBAQAAAAAAAAAAAAAAAAAAAAL/xAAZEQACAwEAAAAAAAAAAAAAAAAAEQESISL/2gAMAwEAAhEDEQA/AKO+x0jBUuF2fDcUZLmy2Qs8ZIOuDWdGRk61KRxRgHfag2ftObJSsx0kYB9aPTHFVp//2Q=="
+    },
+    {
+      "src": "/frame/random-1.jpeg",
+      "w": 3000,
+      "h": 4000,
+      "alt": "Looking up a forested ravine at a layered rock cliff face",
+      "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAVABADASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAwAEBf/EACUQAAIABQMDBQAAAAAAAAAAAAECAAMEETESE0EFBiEiMmHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oADAMBAAIRAxEAPwDP0RnNepklrXGoEA+ObQ3cdc71bU6e2X6bfPJjmSayfLlrtkBlwwFiB9wLzGdnbVnLN+QS5MSFGfUoDZhtjl3LBRjEUUBj/9k="
+    },
+    {
+      "src": "/frame/macro-2.jpeg",
+      "w": 1080,
+      "h": 853,
+      "alt": "A speckled weevil on a green stem, leaves blurred behind it",
+      "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABAID/8QAIhAAAgEDAwUBAAAAAAAAAAAAAQIDABEhEzFBEhQiUWGR/8QAFAEBAAAAAAAAAAAAAAAAAAAABP/EABcRAAMBAAAAAAAAAAAAAAAAAAABESH/2gAMAwEAAhEDEQA/ACCPX1ZI7hi2CMW954qY+3jW6lpHAsz7j8rRZQIgsadEefG9777nmiK5BBGD8oS2oOf/2Q=="
+    },
+    {
+      "src": "/frame/random.jpeg",
+      "w": 1944,
+      "h": 2592,
+      "alt": "A spiky seed pod backlit by the setting sun through leaves",
+      "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAVABADASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIFBAb/xAAjEAABBAEEAQUAAAAAAAAAAAABAAIDESEEBRIUEzFCUXGR/8QAFAEBAAAAAAAAAAAAAAAAAAAAAv/EABgRAQEAAwAAAAAAAAAAAAAAAAEAAhES/9oADAMBAAIRAxEAPwBdi13hdL2tSOGMPsk/RVTfwH7LI8eh4uH6uT07iLoxmvbItfddPo5ITIeJokGzVZwg76niCUq8p3ENILAWn5tCE4l//9k="
+    },
+    {
+      "src": "/frame/macro-3.jpeg",
+      "w": 1944,
+      "h": 2592,
+      "alt": "A cluster of small white flowers with orange centers against dark foliage",
+      "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAVABADASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIDBf/EACAQAAIBBAIDAQAAAAAAAAAAAAECEQADEiEEQQUTMcH/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/EABcRAQEBAQAAAAAAAAAAAAAAAAABAhH/2gAMAwEAAhEDEQA/AMjiWV5LlM8cQWyI0Ipr3HazddXB6ho0dTV/HWvWrck/VWEXW57q/kryjjPbdttAO53P7UTKeMhL1xhiXbEHQmnLN2Zn7NFFFFf/2Q=="
+    },
+    {
+      "src": "/frame/random-3.jpeg",
+      "w": 834,
+      "h": 1057,
+      "alt": "A transmission tower and distant brick-kiln chimneys across a still lake",
+      "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAUABADASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAUCA//EACEQAAEDBAEFAAAAAAAAAAAAAAEAAhEDBDEyEyFRUmGS/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgME/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAMAwEAAhEDEQA/ALlM9+gWnQRIMj0plK6eG6jHkuwu3RqPpXrNEkVHYlORwblERJ//2Q=="
+    },
+    {
+      "src": "/frame/random-5.jpeg",
+      "w": 2987,
+      "h": 3000,
+      "alt": "A bamboo frame silhouetted against a fire-orange sunset sky",
+      "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAQABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAQMF/8QAIBAAAgEDBAMAAAAAAAAAAAAAAQIAAxESBAUxQVKR0f/EABQBAQAAAAAAAAAAAAAAAAAAAAT/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQMRQVH/2gAMAwEAAhEDEQA/AMLE8BYrSY9RG7U0K46dXtzmfkqN/suI0lBVPje/uGbppDMy6f/Z"
+    },
+    {
+      "src": "/frame/random-4.jpeg",
+      "w": 2645,
+      "h": 3306,
+      "alt": "Sunbeams cutting through tree canopy over a quiet yard",
+      "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAUABADASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMFAf/EACAQAAIBBAMAAwAAAAAAAAAAAAECAAMEESEFQVESEzH/xAAVAQEBAAAAAAAAAAAAAAAAAAABAP/EABYRAQEBAAAAAAAAAAAAAAAAAAABEf/aAAwDAQACEQMRAD8AkWVIXI+g5BI82T5F1uPNIZfTneD1G8ctSjcAhlJP4c9xt9dGo7fPZPsLVicrFcAdTHYsN7hCBf/Z"
+    }
+  ],
+  "rows": [
+    {
+      "type": "full",
+      "items": [
+        0
+      ]
+    },
+    {
+      "type": "pair",
+      "items": [
+        2,
+        3
+      ]
+    },
+    {
+      "type": "solo",
+      "align": "left",
+      "items": [
+        4
+      ]
+    },
+    {
+      "type": "trio",
+      "items": [
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "type": "solo",
+      "align": "right",
+      "items": [
+        8
+      ]
+    },
+    {
+      "type": "full",
+      "items": [
+        1
+      ]
+    }
+  ]
+}

@@ -21,10 +21,12 @@ const wipe: Variants = {
 export function Reveal({
   children,
   delay = 0,
+  duration = 0.28,
   className = "",
 }: {
   children?: ReactNode;
   delay?: number;
+  duration?: number;
   className?: string;
 }) {
   const shouldReduceMotion = useReducedMotion();
@@ -39,7 +41,7 @@ export function Reveal({
         animate={inView ? "show" : "hidden"}
         variants={wipe}
         transition={{
-          duration: shouldReduceMotion ? 0 : 0.28,
+          duration: shouldReduceMotion ? 0 : duration,
           ease: [0.22, 1, 0.36, 1],
           delay: shouldReduceMotion ? 0 : delay,
         }}
