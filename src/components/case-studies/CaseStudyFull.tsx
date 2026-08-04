@@ -1,17 +1,22 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { CaseStudy } from "@/lib/types";
 import { Heading } from "@/components/ui/Typography";
 import { ShotPlaceholder } from "@/components/ui/ShotPlaceholder";
 import { Reveal } from "@/components/ui/Reveal";
+import { Lightbox, type LightboxImage } from "@/components/ui/Lightbox";
 
 export function CaseStudyFull({ study, allStudies }: { study: CaseStudy; allStudies: CaseStudy[] }) {
   const i = allStudies.findIndex((s) => s.slug === study.slug);
   const prev = i > 0 ? allStudies[i - 1] : null;
   const next = i < allStudies.length - 1 ? allStudies[i + 1] : null;
+  const [lightboxImage, setLightboxImage] = useState<LightboxImage | null>(null);
 
   return (
-    <article className="mx-auto max-w-[1200px] px-4 pt-8 sm:px-6 sm:pt-14">
+    <article className="mx-auto max-w-300 px-4 pt-8 sm:px-6 sm:pt-14">
       <Reveal className="mb-4 font-mono text-[11px] font-medium tracking-[0.14em] text-teal-500">
         CASE STUDY {String(study.index).padStart(2, "0")} / {allStudies.length.toString().padStart(2, "0")}
       </Reveal>
@@ -40,7 +45,18 @@ export function CaseStudyFull({ study, allStudies }: { study: CaseStudy; allStud
       </Reveal>
 
       <Reveal delay={0.24} className="mb-12">
-        <ShotPlaceholder src={`/shots/${study.slug}-hero.png`} label={study.heroShotLabel} aspect="16/9" rounded="lg" />
+        <ShotPlaceholder
+          src={study.heroImage ?? `/shots/${study.slug}-hero.png`}
+          label={study.heroShotLabel}
+          aspect="16/9"
+          rounded="lg"
+          onClick={() =>
+            setLightboxImage({
+              src: study.heroImage ?? `/shots/${study.slug}-hero.png`,
+              alt: study.heroShotLabel,
+            })
+          }
+        />
       </Reveal>
 
       <div className="grid grid-cols-1 items-start gap-8 sm:grid-cols-2 sm:gap-12">
@@ -77,14 +93,23 @@ export function CaseStudyFull({ study, allStudies }: { study: CaseStudy; allStud
       <div className="mt-12">
         <Reveal className="mb-4 font-mono text-[11px] font-medium tracking-[0.14em] text-ink-400">SCREENSHOTS</Reveal>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {study.images.map((img, idx) => (
-            <Reveal key={img.shotLabel} delay={idx * 0.06}>
-              <figure className="m-0">
-                <ShotPlaceholder src={`/shots/${study.slug}-${idx + 1}.png`} label={img.shotLabel} aspect="16/10" rounded="lg" />
-                <figcaption className="mt-2.5 text-sm leading-[1.5] text-ink-300">{img.caption}</figcaption>
-              </figure>
-            </Reveal>
-          ))}
+          {study.images.map((img, idx) => {
+            const src = img.src ?? `/shots/${study.slug}-${idx + 1}.png`;
+            return (
+              <Reveal key={img.shotLabel} delay={idx * 0.06}>
+                <figure className="m-0">
+                  <ShotPlaceholder
+                    src={src}
+                    label={img.shotLabel}
+                    aspect="16/10"
+                    rounded="lg"
+                    onClick={() => setLightboxImage({ src, alt: img.shotLabel, caption: img.caption })}
+                  />
+                  <figcaption className="mt-2.5 text-sm leading-normal text-ink-300">{img.caption}</figcaption>
+                </figure>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
 
@@ -122,6 +147,8 @@ export function CaseStudyFull({ study, allStudies }: { study: CaseStudy; allStud
           </Link>
         )}
       </Reveal>
+
+      <Lightbox image={lightboxImage} onClose={() => setLightboxImage(null)} />
     </article>
   );
 }

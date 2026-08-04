@@ -10,6 +10,7 @@ export interface ProjectSummary {
   claim: string;
   role: string;
   shotLabel: string;
+  image?: string;
   externalLabel?: string;
   externalHref?: string;
   statusLabel: string;
@@ -20,6 +21,7 @@ export interface ProjectSummary {
 export interface CaseStudyImage {
   shotLabel: string;
   caption: string;
+  src?: string;
 }
 
 export interface CaseStudy {
@@ -34,6 +36,7 @@ export interface CaseStudy {
   rankLabel?: string;
   heroShotLabel: string;
   heroCaption: string;
+  heroImage?: string;
   problem: string[];
   built: string[];
   images: CaseStudyImage[];

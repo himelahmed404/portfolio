@@ -9,25 +9,26 @@
     "externalLabel": "TOOLIFY3D.COM",
     "statusLabel": "STATUS: LIVE",
     "heroShotLabel": "Hero: the quote screen with an uploaded mesh and its price",
-    "heroCaption": "The customer upload screen after a mesh is parsed: dimensions, volume, material selector and the returned price.",
+    "heroCaption": "Customer upload screen showing parsed dimensions, volume, material selector, and price.",
+    "heroImage": "https://i.ibb.co.com/zhKJxG87/Toolify-Hero.png",
     "problem": [
-      "Print shops in Dhaka quote by hand over Messenger. A customer sends a file, waits a few hours for a number, and a good share of them never come back. The quote is the slowest part of a job that takes minutes to set up.",
-      "The uploaded file already contains everything the price depends on. Nobody was reading it."
+      "Manual quoting via Messenger is slow and loses customers.",
+      "Uploaded STLs contain all needed data, but weren't being parsed."
     ],
     "built": [
-      "A storefront that prices a mesh on upload, an admin dashboard for the shop, and an API between them — three services, deployed separately so the quoting path can be restarted without touching orders.",
-      "Binary STL is an 84-byte header followed by 50 bytes per triangle. Volume comes from summing the signed volume of the tetrahedron each triangle forms with the origin — a closed mesh cancels out to the true enclosed volume, so no meshing library is needed. The bounding box gives plate fit and orientation; height divided by layer height gives layer count, which is the basis for the time estimate.",
-      "Price is material cost plus machine time plus margin, and every rate in that expression lives in a table the shop edits from the dashboard. Filament goes up, they change a number — nobody deploys anything. That was the part the shop actually cared about.",
-      "Parsing runs client-side for the instant quote and again on the server when an order is placed, because the client's number is a claim, not a fact. Meshes under roughly 200k triangles resolve in under a second on Dhaka mobile data."
+      "3 decoupled services: storefront, API, and admin dashboard.",
+      "Client-side binary STL parsing calculates volume via tetrahedron sums, plus bounding box for time estimates.",
+      "Admin dashboard with dynamic rate tables updates prices instantly without redeploys.",
+      "Dual parsing (client-side for instant quote, server-side for validation) handles 200k+ triangle meshes in under a second."
     ],
     "images": [
-      { "shotLabel": "Upload → quote, price and time visible", "caption": "The quote screen immediately after an STL is dropped in — derived volume, price and estimated print time." },
-      { "shotLabel": "Admin order queue with states", "caption": "Admin order queue: each order moves through quoted, accepted, printing and collected." },
-      { "shotLabel": "Rate table the shop edits", "caption": "The rate table — material cost per gram, machine rate per hour and margin, editable without a deploy." }
+      { "shotLabel": "Upload → quote, price and time visible", "caption": "Instant quote screen with derived volume and time.", "src": "https://i.ibb.co.com/TqMYF3jQ/Pasted-image.png" },
+      { "shotLabel": "Admin order queue with states", "caption": "Order states: quoted, accepted, printing, collected.", "src": "https://i.ibb.co.com/rKKppMpr/Pasted-image-3.png"},
+      { "shotLabel": "Rate table the shop edits", "caption": "No-deploy rate tables for materials and margins.", "src": "https://i.ibb.co.com/PvXpZpbc/Pasted-image-4.png" }
     ],
     "change": [
-      "Parsing in two places is duplicated logic waiting to drift. I'd move it entirely server-side behind a job queue and let the client show a pending state — slower to feel, simpler to trust.",
-      "The price model is also linear in volume, which means it under-quotes anything needing heavy support material. Estimating supports from overhang angle is the next real improvement."
+      "Move parsing entirely server-side behind a job queue for better trust.",
+      "Add support material estimation based on overhang angles."
     ]
   },
   {
@@ -39,24 +40,23 @@
     "rankLabel": "ASSET SKILL COMPETITION — 2ND / 135",
     "statusLabel": "DEMO ON REQUEST",
     "heroShotLabel": "Hero: live request being matched on the map",
-    "heroCaption": "A patient request in flight: symptom summary, location pin, and the doctors currently being offered the case.",
+    "heroCaption": "Live patient request showing symptoms, location pin, and notified doctors.",
     "problem": [
-      "Getting urgent care in Dhaka means calling clinics one at a time and hoping. Directory apps list doctors by speciality, which answers the wrong question — you don't need to know who exists, you need to know who is free right now and close enough to reach.",
-      "That makes availability a live property, not a profile field."
+      "Traditional directories show who exists, not who is available nearby.",
+      "Doctor availability must be a live property, not static data."
     ],
     "built": [
-      "I owned the request layer and the matching. A consultation request is a small state machine — open, offered, accepted, withdrawn, closed — and every transition is a server-authored event over Socket.io. The client never decides it won a race.",
-      "When a patient opens a request, the server fans it out to on-call doctors inside a starting radius, ranked by distance. The first accept wins and the server immediately withdraws the offer from everyone else, so two doctors can't both believe they took it. If nobody accepts within thirty seconds the radius widens a step and the offer goes out again.",
-      "Distances are straight-line haversine against coordinates from OpenStreetMap's Nominatim geocoder, which is accurate enough to rank candidates and free to run at competition scale. Doctors publish availability as a toggle with an implicit expiry, because the failure mode we cared about was a doctor who went home and left themselves marked on-call.",
-      "Judged 2nd of 135 teams at the Asset Skill Competition."
+      "Socket.io state machine manages consultation requests (open, offered, accepted, withdrawn, closed).",
+      "Server fans out requests to on-call doctors in a radius. First accept wins; radius auto-expands if ignored.",
+      "Matching uses straight-line haversine distance via OpenStreetMap coordinates."
     ],
     "images": [
-      { "shotLabel": "Patient request screen, waiting for accept", "caption": "The patient's view while a request is out — offered doctors and the current search radius." },
-      { "shotLabel": "Doctor's incoming offer with accept action", "caption": "A doctor's incoming offer, showing distance and how long the request has been open." }
+      { "shotLabel": "Patient request screen, waiting for accept", "caption": "Patient view of offered doctors and search radius." },
+      { "shotLabel": "Doctor's incoming offer with accept action", "caption": "Doctor view showing distance and request age." }
     ],
     "change": [
-      "Live request state lived in server memory, which is fine for a demo and wrong for a product: restart the process mid-request and the request is gone. It belongs in the database with the socket layer as pure transport.",
-      "Fan-out also filtered a broadcast rather than using rooms per district, so the work grew with total doctors instead of nearby ones. That's a rewrite of about forty lines and it's the first thing I'd do."
+      "Persist live request state in the database instead of server memory.",
+      "Use district-based socket rooms instead of global fan-out filtering."
     ]
   },
   {
@@ -69,24 +69,24 @@
     "externalLabel": "CYBER-CELL-NBA",
     "statusLabel": "STATUS: IN DEVELOPMENT",
     "heroShotLabel": "Hero: the admin triage queue",
-    "heroCaption": "The triage queue: reports ordered by severity, each showing assignee, age and current state.",
+    "heroCaption": "Triage queue ordering reports by severity, assignee, and state.",
     "problem": [
-      "Reports of online harassment were arriving as Facebook messages and phone calls. There was no record of who had seen what, nothing structured enough to hand to police, and no way to tell a reporter what had happened since.",
-      "The people using it are often frightened and on a borrowed phone. That constrains the design more than any technical requirement does."
+      "Harassment reports were unstructured, lacking secure records for handovers or updates.",
+      "Reporters needed a system safe for shared devices."
     ],
     "built": [
-      "A submission form that needs no account, and behind it a triage queue that makes the handling visible. Reporters get a reference code; entering it later shows the current stage without exposing anything about who is working the case.",
-      "The queue is the real product. A report arrives unassigned, gets a severity, gets an owner, and every action after that appends to a log that cannot be edited — only added to. When a case is escalated, that log is the handover document, which is why nothing in it is overwritable.",
-      "I collect as little as the workflow allows. No mandatory identity, evidence uploads scoped to a case and served through short-lived signed links rather than public URLs, and admin access gated by role with the reporter's contact detail visible only to the assigned owner.",
-      "Building this after a year of security work made one thing obvious: the threat model here is not an attacker on the internet, it's a careless insider with a login."
+      "Accountless submission form issuing reference codes for reporters to check status securely.",
+      "Append-only triage queue acts as the immutable handover document for case escalation.",
+      "Strict data scoping: no mandatory identity, signed links for evidence, and owner-only access to contact details.",
+      "Built with an insider-threat model to prevent careless admin data leaks."
     ],
     "images": [
-      { "shotLabel": "Report submission form", "caption": "The submission form — no account, minimum fields, reference code issued on submit." },
-      { "shotLabel": "Case detail with append-only action log", "caption": "A case with its append-only action log — the record that travels with an escalation." }
+      { "shotLabel": "Report submission form", "caption": "Accountless form issuing a reference code." },
+      { "shotLabel": "Case detail with append-only action log", "caption": "Immutable action log for secure escalation." }
     ],
     "change": [
-      "Append-only is enforced by the application, which means a database admin can still quietly rewrite history. Chaining each entry to a hash of the previous one would make tampering detectable instead of merely inconvenient.",
-      "The form also assumes a working connection. Someone on a weak signal loses what they typed, and for this audience that is not a minor bug — a local draft is next."
+      "Chain log entries to previous hashes to make database tampering detectable.",
+      "Add local draft saving for users on unstable network connections."
     ]
   },
   {
@@ -99,24 +99,23 @@
     "externalLabel": "SPORTNEST-HIMEL",
     "statusLabel": "STATUS: LIVE",
     "heroShotLabel": "Hero: booking flow with a slot selected",
-    "heroCaption": "The booking grid: a venue's slots for one day, with held and taken slots distinguished.",
+    "heroCaption": "Booking grid showing daily venue slots with held and taken status.",
     "problem": [
-      "The default way to add auth to a booking app is to give the application server the secret it signs tokens with. Compromise the app once — an injection, a leaked environment variable, a dependency — and the attacker can mint a valid token for any account, including the owner's.",
-      "A booking platform holds money and personal schedules. That's worth designing around."
+      "Shared JWT secrets mean a compromised app server can mint valid tokens.",
+      "Financial and schedule data require stronger auth architecture."
     ],
     "built": [
-      "Signing and verification are separate concerns held by separate services. The auth service owns the private key and never exposes it; the API only ever verifies.",
-      "Public keys are published as a JWKS document, each with a key id. A token names the key that signed it in its header, and the API resolves that id against the remote key set using `jose`, cached with a TTL so verification isn't a network call per request. Rotating a key means publishing a new one and letting the old one age out — no redeploy, no shared secret to copy between services.",
-      "Authorisation is checked against the resource, not the role. A booking belongs to a user; the handler compares the token subject to the record's owner rather than trusting a role claim, because roles are what get over-granted first as an app grows.",
-      "It is a small platform and this is more machinery than it strictly needs. I built it this way because I wanted the pattern in my hands before I need it on something larger."
+      "Decoupled signing and verification. The API only verifies tokens; the auth service isolates the private key.",
+      "Remote JWKS verification via `jose` with cached TTL. Key rotation requires no redeploys.",
+      "Resource-level authorization checking token subjects against record owners, avoiding over-granted roles."
     ],
     "images": [
-      { "shotLabel": "Slot selection / booking screen", "caption": "Slot selection — availability resolved per venue and day before a booking is held." },
-      { "shotLabel": "A user's bookings, ownership-scoped", "caption": "A user's own bookings — every read here is scoped by the token subject, not by role." }
+      { "shotLabel": "Slot selection / booking screen", "caption": "Slot availability resolved per venue and day." },
+      { "shotLabel": "A user's bookings, ownership-scoped", "caption": "Bookings strictly scoped by token subject." }
     ],
     "change": [
-      "Sessions currently slide forward on activity. Short-lived access tokens with rotating refresh tokens and reuse detection would let a stolen token expire on its own and reveal the theft when the old one comes back.",
-      "The key cache also has no way to be told to drop early, so an emergency rotation waits out the TTL. A push channel for invalidation is the missing piece."
+      "Implement short-lived access tokens with rotating refresh tokens for better theft detection.",
+      "Add a push channel to invalidate the key cache for emergency rotations."
     ]
   }
 ]

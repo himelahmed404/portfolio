@@ -55,5 +55,5 @@ export function Body({ children, className = "" }: { children: ReactNode; classN
 }
 
 export function Small({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <p className={`m-0 text-sm leading-[1.5] text-ink-300 ${className}`}>{children}</p>;
+  return <p className={`m-0 text-sm leading-normal text-ink-300 ${className}`}>{children}</p>;
 }

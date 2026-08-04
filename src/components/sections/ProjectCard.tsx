@@ -12,7 +12,7 @@ export function ProjectCard({ project }: { project: ProjectSummary }) {
 
   return (
     <article className="flex flex-col gap-3.5 rounded-xl border border-ink-600 bg-ink-700 p-5 transition-[border-color,transform] duration-150 hover:-translate-y-px hover:border-teal-500/40">
-      <ShotPlaceholder src={`/shots/${project.slug}-card.png`} label={project.shotLabel} aspect="16/10" />
+      <ShotPlaceholder src={project.image ?? `/shots/${project.slug}-card.png`} label={project.shotLabel} aspect="16/10" />
       <div className="flex flex-col gap-2">
         <div className="flex items-baseline justify-between gap-2.5">
           <Heading as="h3" size="title">

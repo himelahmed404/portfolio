@@ -1,8 +1,10 @@
+import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import type { CaseStudy } from "@/lib/types";
 import { Heading } from "@/components/ui/Typography";
 import { ShotPlaceholder } from "@/components/ui/ShotPlaceholder";
+import { Lightbox, type LightboxImage } from "@/components/ui/Lightbox";
 
 export function CaseStudyPanel({
   study,
@@ -16,6 +18,7 @@ export function CaseStudyPanel({
   const i = allStudies.findIndex((s) => s.slug === study.slug);
   const prev = allStudies[(i - 1 + allStudies.length) % allStudies.length];
   const next = allStudies[(i + 1) % allStudies.length];
+  const [lightboxImage, setLightboxImage] = useState<LightboxImage | null>(null);
 
   return (
     <article className="mx-auto max-w-[860px] px-6 pt-8 pb-24 sm:px-10 sm:pt-12">
@@ -43,11 +46,17 @@ export function CaseStudyPanel({
       </div>
 
       <ShotPlaceholder
-        src={`/shots/${study.slug}-hero.png`}
+        src={study.heroImage ?? `/shots/${study.slug}-hero.png`}
         label={study.heroShotLabel}
         aspect="16/9"
         rounded="lg"
         className="mb-2"
+        onClick={() =>
+          setLightboxImage({
+            src: study.heroImage ?? `/shots/${study.slug}-hero.png`,
+            alt: study.heroShotLabel,
+          })
+        }
       />
       <p className="m-0 mb-8 text-sm leading-[1.5] text-ink-300">{study.heroCaption}</p>
 
@@ -72,12 +81,20 @@ export function CaseStudyPanel({
       ))}
 
       <div className="mb-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
-        {study.images.map((img, idx) => (
-          <figure key={img.shotLabel} className="m-0">
-            <ShotPlaceholder src={`/shots/${study.slug}-${idx + 1}.png`} label={img.shotLabel} aspect="16/10" />
-            <figcaption className="mt-2 text-sm leading-[1.5] text-ink-300">{img.caption}</figcaption>
-          </figure>
-        ))}
+        {study.images.map((img, idx) => {
+          const src = img.src ?? `/shots/${study.slug}-${idx + 1}.png`;
+          return (
+            <figure key={img.shotLabel} className="m-0">
+              <ShotPlaceholder
+                src={src}
+                label={img.shotLabel}
+                aspect="16/10"
+                onClick={() => setLightboxImage({ src, alt: img.shotLabel, caption: img.caption })}
+              />
+              <figcaption className="mt-2 text-sm leading-[1.5] text-ink-300">{img.caption}</figcaption>
+            </figure>
+          );
+        })}
       </div>
 
       <div className="mb-2.5 font-mono text-[11px] font-medium tracking-[0.14em] text-teal-500">
@@ -103,6 +120,8 @@ export function CaseStudyPanel({
           {next.title.toUpperCase()} <ArrowRight className="inline h-3 w-3" />
         </button>
       </nav>
+
+      <Lightbox image={lightboxImage} onClose={() => setLightboxImage(null)} />
     </article>
   );
 }

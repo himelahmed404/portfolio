@@ -5,6 +5,7 @@
     "claim": "Upload an STL, get a price. No human in the loop.",
     "role": "Solo build — customer client, admin dashboard and API deployed as three services.",
     "shotLabel": "Toolify3D quote screen",
+    "image": "https://i.ibb.co.com/zhKJxG87/Toolify-Hero.png",
     "externalLabel": "TOOLIFY3D.COM",
     "externalHref": "https://toolify3d.com",
     "statusLabel": "LIVE",

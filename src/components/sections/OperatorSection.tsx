@@ -11,15 +11,15 @@ const STATS = [
 
 export function OperatorSection({ site }: { site: SiteContent }) {
   return (
-    <div className="mx-auto grid w-full max-w-[1100px] mt-8 sm:mt-10 grid-cols-1 items-center gap-8 layout:grid-cols-[minmax(0,360px)_1fr] layout:gap-14">
-      <Reveal className="w-full max-w-[360px] justify-self-start">
+    <div className="mx-auto grid w-full max-w-275 mt-8 sm:mt-10 grid-cols-1 items-center gap-8 layout:grid-cols-[minmax(0,360px)_1fr] layout:gap-14">
+      <Reveal className="w-full max-w-90 justify-self-start">
         <ShotPlaceholder src="/himel.png" alt={`Portrait of ${site.name}`} label="Add public/himel.png" aspect="4/5" rounded="lg" />
         <div className="mt-2.5 font-mono text-[11px] font-medium tracking-[0.14em] text-ink-400">
           {site.location.toUpperCase()} · GMT+6
         </div>
       </Reveal>
       <div>
-        <Reveal className="mb-[18px] font-mono text-[11px] font-medium tracking-[0.14em] text-teal-500">OPERATOR</Reveal>
+        <Reveal className="mb-4.5 font-mono text-[11px] font-medium tracking-[0.14em] text-teal-500">OPERATOR</Reveal>
         <Reveal delay={0.06} className="mb-3.5 text-lg leading-[1.6] text-ink-100 text-pretty">
           I&apos;m in Dhaka, partway through a diploma in Computer Science &amp; Technology at Munshiganj Polytechnic
           Institute. I build the product and then I try to break it — the same instinct that shipped Toolify3D&apos;s

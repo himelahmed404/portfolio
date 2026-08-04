@@ -21,15 +21,7 @@ const site = siteData as SiteContent;
 const LAYERS = [
   { code: "00 · BASE", name: "The print", zLabel: "0.00", minHeight: 540, background: "ink900" as const, center: true },
   { code: "01 · BUILD", name: "Selected work", zLabel: "0.20", minHeight: 540, background: "ink900" as const, center: false },
-  {
-    code: "02 · RECORD",
-    name: "Competition record",
-    zLabel: "0.45",
-    minHeight: 520,
-    background: "ink800" as const,
-    accent: "brass" as const,
-    center: true,
-  },
+  { code: "02 · RECORD", name: "Competition record", zLabel: "0.45", minHeight: 520, background: "ink800" as const, accent: "brass" as const, center: true },
   { code: "03 · BREAK", name: "Disclosure + writeups", zLabel: "0.60", minHeight: 520, background: "ink900" as const, center: false },
   { code: "04 · STACK", name: "Skills + experience", zLabel: "0.75", minHeight: 520, background: "ink900" as const, center: false },
   { code: "05 · OPERATOR", name: "About", zLabel: "0.90", minHeight: 500, background: "ink800" as const, center: false },
@@ -49,7 +41,7 @@ export default function Home() {
 
   return (
     <DocOverlayProvider>
-      <div className="layout:pl-[72px]">
+      <div className="layout:pl-18">
         <Rail z={z} active={active} onJump={goTo} />
 
         <main>

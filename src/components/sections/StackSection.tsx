@@ -12,9 +12,9 @@ const { items: experience, certifications } = experienceData as {
 
 export function StackSection() {
   return (
-    <div className="mx-auto grid max-w-[1200px] mt-8 sm:mt-10 grid-cols-1 items-start gap-8 layout:grid-cols-2 layout:gap-14">
+    <div className="mx-auto grid max-w-300 mt-8 sm:mt-10 grid-cols-1 items-start gap-8 layout:grid-cols-2 layout:gap-14">
       <div>
-        <Reveal className="mb-[18px] font-mono text-[11px] font-medium tracking-[0.14em] text-teal-500">STACK</Reveal>
+        <Reveal className="mb-4.5 font-mono text-[11px] font-medium tracking-[0.14em] text-teal-500">STACK</Reveal>
         <div className="flex flex-col gap-4">
           {stackGroups.map((group, i) => (
             <Reveal key={group.label} delay={0.06 + i * 0.06}>
@@ -32,7 +32,7 @@ export function StackSection() {
       </div>
 
       <div>
-        <Reveal className="mb-[18px] font-mono text-[11px] font-medium tracking-[0.14em] text-teal-500">
+        <Reveal className="mb-4.5 font-mono text-[11px] font-medium tracking-[0.14em] text-teal-500">
           EXPERIENCE
         </Reveal>
         <div className="flex flex-col">
@@ -58,7 +58,7 @@ export function StackSection() {
           </div>
           <ul className="m-0 flex list-none flex-col gap-1.5 p-0">
             {certifications.map((c) => (
-              <li key={c} className="text-sm leading-[1.5] text-ink-300">
+              <li key={c} className="text-sm leading-normal text-ink-300">
                 {c}
               </li>
             ))}
