@@ -17,6 +17,7 @@
     "title": "MediGo",
     "claim": "Real-time patient-to-doctor matching. 2nd of 135.",
     "role": "Three-person team — I built the Socket.io request layer and the location matching.",
+    "image": "https://i.ibb.co.com/fdy4MzVk/medigo.jpg",
     "shotLabel": "MediGo matching screen",
     "externalLabel": "DEMO ON REQUEST",
     "statusLabel": "SHIPPED",
@@ -28,23 +29,12 @@
     "title": "NBA Cyber-Cell",
     "claim": "Harassment reports, triaged and tracked. National rollout.",
     "role": "Lead developer — reporter submission form feeding an admin triage queue with recorded actions.",
+    "image": "https://i.ibb.co.com/SDf7wgb0/Pasted-image.png",
     "shotLabel": "Cyber-Cell triage dashboard",
     "externalLabel": "CYBER-CELL-NBA",
     "externalHref": "https://cyber-cell-nba.vercel.app",
     "statusLabel": "IN DEVELOPMENT",
     "status": "wip",
     "stack": ["MONGODB", "EXPRESS", "REACT", "NODE"]
-  },
-  {
-    "slug": "sportnest",
-    "title": "Sportnest",
-    "claim": "Booking platform with JWTs verified against a remote JWKS endpoint.",
-    "role": "Solo build — ownership-scoped permissions, token signing kept off the application server.",
-    "shotLabel": "Sportnest booking screen",
-    "externalLabel": "SPORTNEST-HIMEL",
-    "externalHref": "https://sportnest-himel.vercel.app",
-    "statusLabel": "LIVE",
-    "status": "live",
-    "stack": ["NEXT.JS 16", "REACT 19", "EXPRESS", "JOSE"]
   }
 ]

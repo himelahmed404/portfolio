@@ -93,7 +93,7 @@ export function CaseStudyFull({ study, allStudies }: { study: CaseStudy; allStud
       <div className="mt-12">
         <Reveal className="mb-4 font-mono text-[11px] font-medium tracking-[0.14em] text-ink-400">SCREENSHOTS</Reveal>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {study.images.map((img, idx) => {
+          {study?.images?.map((img, idx) => {
             const src = img.src ?? `/shots/${study.slug}-${idx + 1}.png`;
             return (
               <Reveal key={img.shotLabel} delay={idx * 0.06}>

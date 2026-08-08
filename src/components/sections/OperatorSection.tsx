@@ -13,7 +13,7 @@ export function OperatorSection({ site }: { site: SiteContent }) {
   return (
     <div className="mx-auto grid w-full max-w-275 mt-8 sm:mt-10 grid-cols-1 items-center gap-8 layout:grid-cols-[minmax(0,360px)_1fr] layout:gap-14">
       <Reveal className="w-full max-w-90 justify-self-start">
-        <ShotPlaceholder src="/himel.png" alt={`Portrait of ${site.name}`} label="Add public/himel.png" aspect="4/5" rounded="lg" />
+        <ShotPlaceholder src="/profile/Himel.png" alt={`Portrait of ${site.name}`} label="Add public/himel.png" aspect="4/5" rounded="lg" />
         <div className="mt-2.5 font-mono text-[11px] font-medium tracking-[0.14em] text-ink-400">
           {site.location.toUpperCase()} · GMT+6
         </div>
@@ -21,22 +21,24 @@ export function OperatorSection({ site }: { site: SiteContent }) {
       <div>
         <Reveal className="mb-4.5 font-mono text-[11px] font-medium tracking-[0.14em] text-teal-500">OPERATOR</Reveal>
         <Reveal delay={0.06} className="mb-3.5 text-lg leading-[1.6] text-ink-100 text-pretty">
-          I&apos;m in Dhaka, partway through a diploma in Computer Science &amp; Technology at Munshiganj Polytechnic
-          Institute. I build the product and then I try to break it — the same instinct that shipped Toolify3D&apos;s
-          quoting engine is the one that found an OTP sitting in someone else&apos;s registration response.
+          I&apos;m a full-stack developer in Dhaka. I build the product, then I try to break it. That second
+          habit is how I found a verification code sitting in a registration response, where anyone watching
+          could read it.
         </Reveal>
         <Reveal delay={0.12} className="mb-3.5 text-base leading-[1.65] text-ink-300 text-pretty">
-          I&apos;m vice president of the MUPI Computer Club — 550+ members, CTF and security training for 70+ students
-          across three sessions, and an inter-polytechnic TechFest with 200+ attendees. At NBA Cyber-Cell I&apos;m lead
-          developer on the harassment reporting platform and I speak on digital hygiene to school groups; 130+
-          students so far.
+          I&apos;m vice president of the MUPI Computer Club, which has over 550 members. I have run CTF and
+          security training for 70+ students across three sessions, and an inter-polytechnic TechFest that
+          drew over 200 people. At NBA Cyber-Cell I&apos;m lead developer on the harassment reporting
+          platform, and I speak to college groups about digital safety — 130+ students so far.
         </Reveal>
         <Reveal delay={0.18} className="text-base leading-[1.65] text-ink-300 text-pretty">
-          What I want next: a full-stack role where security review is part of shipping, not a separate team&apos;s
-          ticket. I shoot <Link href="/frame" className="text-teal-500 hover:underline">
+          What I want next is a full-stack role where security review is part of shipping, not another
+          team&apos;s ticket. I&apos;m partway through a diploma in Computer Science, though most of what I
+          know came from building things and then testing them. I shoot{" "}
+          <Link href="/frame" className="text-teal-500 hover:underline">
             nature and macro
           </Link>{" "}
-          when I&apos;m not building.
+          when I&apos;m not at a keyboard.
         </Reveal>
         <Reveal delay={0.24} className="mt-6 flex flex-wrap gap-6 border-t border-ink-600 pt-5">
           {STATS.map((s) => (

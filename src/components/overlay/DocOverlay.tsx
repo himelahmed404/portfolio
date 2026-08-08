@@ -10,7 +10,7 @@ import writeupsData from "@/content/writeups.json";
 import type { CaseStudy, Writeup } from "@/lib/types";
 
 const studies = caseStudiesData as CaseStudy[];
-const posts = writeupsData as Writeup[];
+const posts = (writeupsData as Writeup[]).filter((w) => !w.externalHref);
 
 export function DocOverlay() {
   const { activeDoc, openDoc, closeDoc } = useDocOverlay();

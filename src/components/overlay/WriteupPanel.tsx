@@ -36,10 +36,10 @@ export function WriteupPanel({
       </Heading>
       <p className="m-0 mb-7 text-lg leading-[1.6] text-ink-100 text-pretty">{writeup.dek}</p>
 
-      {writeup.body.map((p, idx) => (
+      {(writeup.body ?? []).map((p, idx, body) => (
         <p
           key={idx}
-          className={`m-0 text-base leading-[1.65] text-ink-300 text-pretty ${idx > 0 ? "mt-3.5" : ""} ${idx === writeup.body.length - 1 ? "mb-9" : ""}`}
+          className={`m-0 text-base leading-[1.65] text-ink-300 text-pretty ${idx > 0 ? "mt-3.5" : ""} ${idx === body.length - 1 ? "mb-9" : ""}`}
         >
           {p}
         </p>

@@ -47,12 +47,15 @@ export interface Writeup {
   slug: string;
   index: number;
   tag: string;
-  readTime: string;
+  readTime?: string;
+  date?: string;
   badge?: string;
   rank?: string;
   title: string;
-  dek: string;
-  body: string[];
+  dek?: string;
+  body?: string[];
+  /** When set, the card links straight out to this URL (e.g. a Medium post) instead of opening the in-site reader. */
+  externalHref?: string;
 }
 
 export interface RecordRow {

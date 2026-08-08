@@ -3,50 +3,81 @@
     "slug": "wr-dw",
     "index": 1,
     "tag": "DISCLOSURE",
-    "readTime": "7 MIN",
+    "readTime": "5 MIN",
     "badge": "ACKNOWLEDGED",
     "title": "The passcode in the response body",
-    "dek": "DW News returned a registration one-time passcode in the API response that was supposed to prove you owned the address. Reported 2025, acknowledged by the vendor, no bounty programme running.",
+    "dek": "DW's German-learning platform returned the email verification code in the API response — the same code that was meant to prove you could read the inbox. Found and reported in 2025, acknowledged by DW.",
     "body": [
-      "Email verification exists to prove one thing: that the person registering can read mail sent to that address. The proof works only because the passcode travels by a channel the registrant does not otherwise control — the inbox. Anything that puts the code back on the registration channel removes the proof entirely.",
-      "I was looking at the account registration flow with an intercepting proxy, which is the ordinary way to read what a client is actually told versus what it chooses to display. The response to the registration request carried the verification code as a field. The interface never showed it; the browser was simply expected to ignore it.",
-      "The consequence is that any address could be registered without access to it. Not a leak of existing accounts — a bypass of the check that verification was there to perform, on an address belonging to someone else. Anywhere a verified address is treated as identity downstream, that assumption was no longer safe.",
-      "The fix is not subtle: the code never leaves the server. The response says whether a mail was sent, and verification is a second request carrying a code the server compares against a stored hash with an expiry and an attempt limit. The client is told the outcome, never the secret.",
-      "Timeline: found and written up in 2025, reported through the vendor's security contact with the request, the response field and the impact stated plainly. Acknowledged with thanks. There was no bounty programme at the time, so that is all there was — and it is worth saying so, because a disclosure is not less real for being unpaid.",
-      "What I took from it: read the whole response, not the rendered page. A field the interface ignores is still a field the server sent, and the client is the last place to keep a secret. I write my own verification flows differently because of this one — and no exploit detail beyond what is above is published here."
+      "Email verification is there to prove one thing: that whoever is signing up can read mail sent to that address. It works only because the code travels by a channel the person does not otherwise control — the inbox. The moment the code appears on the sign-up channel itself, the proof is gone.",
+      "I was learning German on DW's platform, and one day I turned the same curiosity on the site itself. I put the login and registration flow through Burp Suite, which lets you read what the server actually sends the browser rather than what the page chooses to show. The response to the registration request carried the verification code as a field. The page never displayed it. The browser was just expected to ignore it.",
+      "Because the code was in the response, anyone watching the response had it. So any address could be verified without ever opening its inbox — including addresses that were not mine, such as an admin@ address on DW's own domain. This was not a leak of existing accounts. It was a way around the check that verification was supposed to be, on an address belonging to someone else. Anywhere a verified address is later trusted as identity, that trust was no longer safe.",
+      "The fix is not complicated: the code never leaves the server. The response says only whether a mail was sent. Verification is a second request that carries the code the user typed, and the server compares it against a stored copy with an expiry and a limit on tries. The user is told the result, never the secret.",
+      "Timeline: found and written up in 2025, and reported to DW's security contact with the request, the response field, and the impact stated plainly. It was acknowledged with thanks. There was no bug bounty running, so that was the end of it — and that is worth saying, because a disclosure is no less real for being unpaid. I have not gone back to confirm the fix, so I am not claiming one.",
+      "What I took from it: read the whole response, not the rendered page. A field the interface ignores is still a field the server chose to send, and the browser is the last place you should keep a secret. I write my own verification flows differently because of this one. No exploit steps beyond what is written here are published."
     ]
   },
   {
-    "slug": "wr-ctf",
+    "slug": "wr-disko-1",
     "index": 2,
     "tag": "CTF",
-    "readTime": "9 MIN",
-    "rank": "1ST / 140",
-    "title": "Phoenix Summit 2025 — reading the key the server trusted",
-    "dek": "The web chain that took us first of 140 teams: a token verifier that fetched its own signing key, and a header that decided where it fetched from.",
-    "body": [
-      "The target was an admin panel behind a signed session token. The token was well-formed and the signature checked out, so the interesting question was not how to forge it but who the server asked when deciding whether it was valid.",
-      "Modern verifiers often resolve a public key at runtime instead of holding a static secret: the token names a key, the server fetches a key set, picks the matching entry and verifies. That is a good design — it is how rotation stops being a deploy. It has one hard requirement: the location of the key set is the server's decision and nobody else's.",
-      "Here it wasn't. The token carried a hint about where its key lived, and the verifier trusted the hint. Once the party presenting a credential also chooses which authority validates it, the signature stops proving anything about identity — it proves only internal consistency with a key set the presenter nominated.",
-      "Getting there took the usual unglamorous work: mapping the endpoints, noticing which responses differed by a header rather than a body, and one small information disclosure that told us the verification library and version, which is what turned a guess into a hypothesis. Most of the four hours was reading, not typing.",
-      "The defence, stated positively: the key set location is configuration, the key identifier from the token is used only to select within that set, and algorithm, issuer and audience are pinned by the server. Every one of those is a line of config, and all four have to be right.",
-      "I built Sportnest's authentication immediately after this competition, and the shape of its verifier is a direct consequence — the strict version, written before anyone had to find the loose one. Challenge-specific payloads are omitted; the organisers' infrastructure stays out of this writeup."
-    ]
+    "date": "JUN 2025",
+    "title": "DISKO 1 | CTF Writeup | Pico CTF",
+    "externalHref": "https://medium.com/@himelahmed404/disko-1-ctf-writeup-pico-ctf-448c6314276c"
   },
   {
-    "slug": "wr-mesh",
+    "slug": "wr-pwn-dis-file",
     "index": 3,
-    "tag": "ENGINEERING",
-    "readTime": "11 MIN",
-    "title": "From mesh to money: how Toolify3D prices an STL",
-    "dek": "Parsing binary STL triangles, deriving volume from the signed tetrahedron sum, and turning that into material cost and print time — in under a second, on a Dhaka connection.",
-    "body": [
-      "A binary STL is an 80-byte header, a 4-byte triangle count, then fifty bytes per triangle: a normal, three vertices, two spare bytes. There is no topology, no units and no object list — it is a bag of triangles. That sounds like a problem and is actually the reason this is fast.",
-      "Volume comes from the divergence theorem in its cheapest form. Each triangle forms a tetrahedron with the origin; the signed volume of that tetrahedron is the scalar triple product of its three vertices over six. Sum it across every triangle and the parts outside the solid cancel, because their winding faces the other way. Take the absolute value and you have the model's volume in one pass, no mesh repair, no library.",
-      "The same pass yields the bounding box, which answers the other question a shop asks: does this fit the plate. Two numbers, one traversal, and the traversal is a typed-array read over an ArrayBuffer, so a few hundred thousand triangles land in tens of milliseconds.",
-      "Money is then a small model, not a mystery. Grams are volume times material density times an infill factor, cost is grams times the spool rate plus a machine-time charge, and time is estimated from the Z extent divided by layer height, times a per-machine constant calibrated against jobs the shop had already run. It is an estimate and the interface says so — the shop can override, and the override is stored beside the machine number so the two can be compared.",
-      "Where it runs matters more than how it computes. The parse happens in the browser so the price appears before a 40MB file has finished uploading, which on a Dhaka mobile connection is the difference between a quote and an abandoned tab. Then the server re-parses the stored file and re-derives the price, because a client can claim any volume it likes. The client parse is a courtesy; the server parse is the one that gets charged.",
-      "Known limits, stated plainly: a non-watertight mesh returns a volume that is confidently wrong, and right now the engine answers instead of refusing. ASCII STL is parsed on a slower path. And the price table is mutable, so an old quote cannot yet be reproduced — the next change is versioning it."
-    ]
+    "tag": "CTF",
+    "date": "JAN 2025",
+    "title": "Pwn-Dis-File CTF Challenge Writeup",
+    "externalHref": "https://medium.com/@himelahmed404/pwn-dis-file-ctf-challenge-writeup-154779c622e3"
+  },
+  {
+    "slug": "wr-babypcap",
+    "index": 4,
+    "tag": "CTF",
+    "date": "JAN 2025",
+    "title": "Babypcap CTF Challenge Walkthrough",
+    "externalHref": "https://medium.com/@himelahmed404/babypcap-ctf-challenge-walkthrough-cedc0baefa26"
+  },
+  {
+    "slug": "wr-binhexa",
+    "index": 5,
+    "tag": "CTF",
+    "date": "OCT 2024",
+    "title": "CTF Write-Up: Solving the Binary Challenge (binhexa)",
+    "externalHref": "https://medium.com/@himelahmed404/ctf-write-up-solving-the-binary-challenge-binhexa-e9eb4e0bbbff"
+  },
+  {
+    "slug": "wr-draw-math-draw",
+    "index": 6,
+    "tag": "CTF",
+    "date": "MAY 2024",
+    "title": "Qr code CTF: Draw Math Draw",
+    "externalHref": "https://medium.com/@himelahmed404/qr-code-ctf-draw-math-draw-feb9f8cc3e3e"
+  },
+  {
+    "slug": "wr-matryoshka-doll",
+    "index": 7,
+    "tag": "CTF",
+    "date": "OCT 2023",
+    "title": "Matryoshka doll{picoCTF}",
+    "externalHref": "https://medium.com/@himelahmed404/matryoshka-doll-picoctf-1bcd885d005c"
+  },
+  {
+    "slug": "wr-power-up",
+    "index": 8,
+    "tag": "CTF",
+    "date": "SEP 2023",
+    "title": "CTF:Power UP",
+    "externalHref": "https://medium.com/@himelahmed404/ctf-power-up-2d1aa887621a"
+  },
+  {
+    "slug": "wr-dolphin",
+    "index": 9,
+    "tag": "CTF",
+    "date": "SEP 2023",
+    "title": "CTF:Dolphin",
+    "externalHref": "https://medium.com/@himelahmed404/ctf-dolphin-59f2a38dc3f"
   }
 ]

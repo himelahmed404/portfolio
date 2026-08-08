@@ -81,7 +81,7 @@ export function CaseStudyPanel({
       ))}
 
       <div className="mb-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
-        {study.images.map((img, idx) => {
+        {study?.images?.map((img, idx) => {
           const src = img.src ?? `/shots/${study.slug}-${idx + 1}.png`;
           return (
             <figure key={img.shotLabel} className="m-0">

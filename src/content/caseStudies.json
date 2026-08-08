@@ -3,119 +3,96 @@
     "slug": "toolify3d",
     "index": 1,
     "title": "Toolify3D",
-    "claim": "Upload an STL, get a price. No human in the loop.",
-    "meta": ["SOLO BUILD", "3 DEPLOYED SERVICES", "REACT · NODE · EXPRESS · MONGODB", "2025 — 2026"],
+    "claim": "Upload an STL file, get a price. No person involved.",
+    "meta": ["SOLO BUILD", "3 DEPLOYED SERVICES", "NEXT.JS · NODE · EXPRESS · MONGODB", "2025 — 2026"],
     "externalHref": "https://toolify3d.com",
     "externalLabel": "TOOLIFY3D.COM",
     "statusLabel": "STATUS: LIVE",
-    "heroShotLabel": "Hero: the quote screen with an uploaded mesh and its price",
-    "heroCaption": "Customer upload screen showing parsed dimensions, volume, material selector, and price.",
+    "heroShotLabel": "Hero: the quote screen with an uploaded model and its price",
+    "heroCaption": "Upload screen showing the model size, volume, material choice, and price.",
     "heroImage": "https://i.ibb.co.com/zhKJxG87/Toolify-Hero.png",
     "problem": [
-      "Manual quoting via Messenger is slow and loses customers.",
-      "Uploaded STLs contain all needed data, but weren't being parsed."
+      "Quoting by hand on Messenger was slow, and slow quotes lose customers.",
+      "The STL file already holds every number a price needs. Nobody was reading it."
     ],
     "built": [
-      "3 decoupled services: storefront, API, and admin dashboard.",
-      "Client-side binary STL parsing calculates volume via tetrahedron sums, plus bounding box for time estimates.",
-      "Admin dashboard with dynamic rate tables updates prices instantly without redeploys.",
-      "Dual parsing (client-side for instant quote, server-side for validation) handles 200k+ triangle meshes in under a second."
+      "Three separate services: the shop, the API, and the admin dashboard.",
+      "The browser reads the STL file and works out the model's volume. Volume times material density gives the weight, and weight sets the price. The box around the model gives a rough print time.",
+      "The shop owner edits the rate table in the admin dashboard. New prices go live at once, with no new deploy.",
+      "The browser prices the file so the customer sees a number right away. The server reads the same file again to check that number. A 200k triangle model takes under a second."
     ],
     "images": [
-      { "shotLabel": "Upload → quote, price and time visible", "caption": "Instant quote screen with derived volume and time.", "src": "https://i.ibb.co.com/TqMYF3jQ/Pasted-image.png" },
-      { "shotLabel": "Admin order queue with states", "caption": "Order states: quoted, accepted, printing, collected.", "src": "https://i.ibb.co.com/rKKppMpr/Pasted-image-3.png"},
-      { "shotLabel": "Rate table the shop edits", "caption": "No-deploy rate tables for materials and margins.", "src": "https://i.ibb.co.com/PvXpZpbc/Pasted-image-4.png" }
+      { "shotLabel": "Upload → quote, price and time visible", "caption": "The quote screen, with weight and print time worked out from the file.", "src": "https://i.ibb.co.com/TqMYF3jQ/Pasted-image.png" },
+      { "shotLabel": "Admin order queue with states", "caption": "Order states: quoted, accepted, printing, collected.", "src": "https://i.ibb.co.com/rKKppMpr/Pasted-image-3.png" },
+      { "shotLabel": "Rate table the shop edits", "caption": "Material and margin rates, editable without a deploy.", "src": "https://i.ibb.co.com/PvXpZpbc/Pasted-image-4.png" }
     ],
     "change": [
-      "Move parsing entirely server-side behind a job queue for better trust.",
-      "Add support material estimation based on overhang angles."
+      "Move all file reading to the server, behind a job queue, so the price cannot be faked.",
+      "Work out support material from the overhang angles."
     ]
   },
   {
     "slug": "medigo",
     "index": 2,
     "title": "MediGo",
-    "claim": "Real-time patient-to-doctor matching. 2nd of 135.",
-    "meta": ["3-PERSON TEAM", "MY SCOPE: REALTIME + MATCHING", "REACT · SOCKET.IO · SUPABASE · OPENSTREETMAP", "2025"],
+    "claim": "Live matching between patients and doctors. 2nd of 135.",
+    "meta": ["3-PERSON TEAM", "Vibe Code", "MY SCOPE: REALTIME + MATCHING", "REACT · SOCKET.IO · SUPABASE · OPENSTREETMAP", "2025"],
     "rankLabel": "ASSET SKILL COMPETITION — 2ND / 135",
     "statusLabel": "DEMO ON REQUEST",
     "heroShotLabel": "Hero: live request being matched on the map",
-    "heroCaption": "Live patient request showing symptoms, location pin, and notified doctors.",
+    "heroCaption": "A live patient request with symptoms, a map pin, and the doctors who were called.",
+    "heroImage": "https://i.ibb.co.com/fdy4MzVk/medigo.jpg",
     "problem": [
-      "Traditional directories show who exists, not who is available nearby.",
-      "Doctor availability must be a live property, not static data."
+      "A normal doctor list shows who exists. It does not show who is free right now.",
+      "Being free has to be live data, not a fixed field in a table.",
+      "An unchecked doctor account is a real risk, so identity has to be verified before anyone can take a case."
     ],
     "built": [
-      "Socket.io state machine manages consultation requests (open, offered, accepted, withdrawn, closed).",
-      "Server fans out requests to on-call doctors in a radius. First accept wins; radius auto-expands if ignored.",
-      "Matching uses straight-line haversine distance via OpenStreetMap coordinates."
-    ],
-    "images": [
-      { "shotLabel": "Patient request screen, waiting for accept", "caption": "Patient view of offered doctors and search radius." },
-      { "shotLabel": "Doctor's incoming offer with accept action", "caption": "Doctor view showing distance and request age." }
+      "Socket.io tracks each request through its states: open, offered, accepted, withdrawn, closed.",
+      "The server sends a request to every on-call doctor inside a radius. The first to accept gets it. If nobody answers, the radius grows.",
+      "Matching uses straight-line distance between the patient's GPS point and the doctor's, drawn on an OpenStreetMap layer with Leaflet.",
+      "Three roles, guarded by JWT and Supabase row-level security. A new doctor account stays switched off until an admin checks the license number.",
+      "The fee is worked out when the case closes: a base rate, raised by how urgent the case is and by the doctor's specialty."
     ],
     "change": [
-      "Persist live request state in the database instead of server memory.",
-      "Use district-based socket rooms instead of global fan-out filtering."
+      "Keep live request state in the database, not in server memory.",
+      "Use one socket room per district instead of sending to everyone and filtering.",
+      "Use road distance or arrival time instead of straight-line distance. A straight line means little in Dhaka traffic.",
+      "Move the fee calculation to the server and into a real payment flow. Right now it is only a mock."
     ]
   },
   {
     "slug": "cybercell",
     "index": 3,
     "title": "NBA Cyber-Cell",
-    "claim": "Harassment reports, triaged and tracked. National rollout.",
-    "meta": ["LEAD DEVELOPER", "2-PERSON TEAM", "REACT · NODE · EXPRESS · MONGODB", "2026"],
+    "claim": "Harassment reports, sorted and tracked. Built for a national organisation.",
+    "meta": ["SOLE DEVELOPER", "MY SCOPE: WHOLE STACK", "NEXT.JS · NODE · EXPRESS · MONGODB", "2026"],
     "externalHref": "https://cyber-cell-nba.vercel.app",
     "externalLabel": "CYBER-CELL-NBA",
-    "statusLabel": "STATUS: IN DEVELOPMENT",
+    "statusLabel": "STATUS: PRE-LAUNCH BUILD",
     "heroShotLabel": "Hero: the admin triage queue",
-    "heroCaption": "Triage queue ordering reports by severity, assignee, and state.",
+    "heroCaption": "The case queue, sorted by urgency, type, and state.",
+    "heroImage": "https://i.ibb.co.com/SDf7wgb0/Pasted-image.png",
     "problem": [
-      "Harassment reports were unstructured, lacking secure records for handovers or updates.",
-      "Reporters needed a system safe for shared devices."
+      "Reports came in as plain messages. There was no shared record to hand over or update.",
+      "The women reporting are upset and read Bangla. The form, the advice, and the helpline numbers had to be Bangla from the start, not translated later."
     ],
     "built": [
-      "Accountless submission form issuing reference codes for reporters to check status securely.",
-      "Append-only triage queue acts as the immutable handover document for case escalation.",
-      "Strict data scoping: no mandatory identity, signed links for evidence, and owner-only access to contact details.",
-      "Built with an insider-threat model to prevent careless admin data leaks."
+      "The form asks set questions instead of taking free text: type of harassment, platform, when it started, what is known about the person, and any files. A case arrives ready to sort.",
+      "Anonymous mode hides the name from staff but still asks for one way to reply, because a report nobody can answer helps nobody.",
+      "Every report gets a case ID. The reporter checks status with that ID, with no account and no password left behind on a shared phone.",
+      "The admin queue sorts open cases by urgency and state. A safety flag moves a case to the fast path.",
+      "File upload with a size limit per file, next to advice to take screenshots before blocking, so the proof is not lost."
     ],
     "images": [
-      { "shotLabel": "Report submission form", "caption": "Accountless form issuing a reference code." },
-      { "shotLabel": "Case detail with append-only action log", "caption": "Immutable action log for secure escalation." }
+      { "shotLabel": "Report submission form", "caption": "The Bangla report form.", "src": "https://i.ibb.co.com/wrBkhmbG/medigoo2.png" },
+      { "shotLabel": "Legal help page", "caption": "What the law says, and what steps a reporter can take.", "src": "https://i.ibb.co.com/BHbBrk5K/cyber4.png" }
     ],
     "change": [
-      "Chain log entries to previous hashes to make database tampering detectable.",
-      "Add local draft saving for users on unstable network connections."
-    ]
-  },
-  {
-    "slug": "sportnest",
-    "index": 4,
-    "title": "Sportnest",
-    "claim": "Booking platform with JWTs verified against a remote JWKS endpoint.",
-    "meta": ["SOLO BUILD", "NEXT.JS 16 · REACT 19 · EXPRESS · JOSE · MONGODB", "2026"],
-    "externalHref": "https://sportnest-himel.vercel.app",
-    "externalLabel": "SPORTNEST-HIMEL",
-    "statusLabel": "STATUS: LIVE",
-    "heroShotLabel": "Hero: booking flow with a slot selected",
-    "heroCaption": "Booking grid showing daily venue slots with held and taken status.",
-    "problem": [
-      "Shared JWT secrets mean a compromised app server can mint valid tokens.",
-      "Financial and schedule data require stronger auth architecture."
-    ],
-    "built": [
-      "Decoupled signing and verification. The API only verifies tokens; the auth service isolates the private key.",
-      "Remote JWKS verification via `jose` with cached TTL. Key rotation requires no redeploys.",
-      "Resource-level authorization checking token subjects against record owners, avoiding over-granted roles."
-    ],
-    "images": [
-      { "shotLabel": "Slot selection / booking screen", "caption": "Slot availability resolved per venue and day." },
-      { "shotLabel": "A user's bookings, ownership-scoped", "caption": "Bookings strictly scoped by token subject." }
-    ],
-    "change": [
-      "Implement short-lived access tokens with rotating refresh tokens for better theft detection.",
-      "Add a push channel to invalidate the key cache for emergency rotations."
+      "Make the case log append-only, and tie each entry to the hash of the one before it. Then an edit to history shows up.",
+      "Serve evidence files through signed links that expire, not direct URLs.",
+      "Save drafts on the device for people on weak connections.",
+      "Rate-limit the form. An open form with no account is also an open door for spam."
     ]
   }
 ]
