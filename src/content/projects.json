@@ -36,5 +36,44 @@
     "statusLabel": "IN DEVELOPMENT",
     "status": "wip",
     "stack": ["MONGODB", "EXPRESS", "REACT", "NODE"]
+  },
+  {
+    "slug": "bytespace",
+    "title": "ByteSpace",
+    "claim": "Pixel-perfect, animated frontend build. 98+ Lighthouse scores.",
+    "role": "Solo frontend build — verified with automated visual diffs and complex CSS math.",
+    "image": "https://i.ibb.co.com/KzGN17SZ/bytespace-hero.png",
+    "shotLabel": "ByteSpace landing page at 1440px",
+    "externalLabel": "BYTESPACE",
+    "externalHref": "https://bytespace-himel.vercel.app/",
+    "statusLabel": "SHIPPED",
+    "status": "shipped",
+    "stack": ["NEXT.JS", "TAILWIND", "MOTION", "REACT"]
+  },
+  {
+    "slug": "school-of-gen-z",
+    "title": "School of Gen Z",
+    "claim": "Marketing site for an upcoming full-stack Learning Management System.",
+    "role": "Solo build — live marketing frontend and WIP MERN stack backend architecture.",
+    "image": "https://i.ibb.co.com/bRFzSqBK/School-hero.png",
+    "shotLabel": "School of Gen Z landing page",
+    "externalLabel": "SCHOOL OF GEN Z",
+    "externalHref": "https://school-of-gen-z.vercel.app/",
+    "statusLabel": "MARKETING LIVE",
+    "status": "wip",
+    "stack": ["REACT", "NODE", "EXPRESS", "MONGODB"]
+  },
+  {
+    "slug": "redlife",
+    "title": "RedLife",
+    "claim": "A national blood donation network for Bangladesh. Live donor matching.",
+    "role": "Solo full-stack build — separated Next.js frontend and Express API secured with Better Auth.",
+    "image": "https://i.ibb.co.com/jdcWzcq/redlife-hero.png",
+    "shotLabel": "RedLife dashboard and request board",
+    "externalLabel": "REDLIFE",
+    "externalHref": "https://red-life.vercel.app/",
+    "statusLabel": "LIVE",
+    "status": "live",
+    "stack": ["NEXT.JS", "EXPRESS", "MONGODB", "BETTER AUTH", "STRIPE"]
   }
 ]

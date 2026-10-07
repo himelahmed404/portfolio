@@ -94,5 +94,149 @@
       "Save drafts on the device for people on weak connections.",
       "Rate-limit the form. An open form with no account is also an open door for spam."
     ]
-  }
+  },
+    {
+      "slug": "bytespace",
+      "index": 4,
+      "title": "ByteSpace",
+      "claim": "Pixel-perfect, animated frontend build. 98+ Lighthouse scores.",
+      "meta": [
+        "SOLO BUILD",
+        "FRONTEND ASSESSMENT",
+        "NEXT.JS 16 · TAILWIND V4 · MOTION",
+        "2026"
+      ],
+      "externalHref": "https://bytespace-himel.vercel.app/",
+      "externalLabel": "BYTESPACE",
+      "statusLabel": "STATUS: SHIPPED",
+      "heroShotLabel": "Hero: ByteSpace landing page at 1440px",
+      "heroCaption": "The landing page, verified against the Figma design with an automated pixel diff.",
+      "heroImage": "https://i.ibb.co.com/KzGN17SZ/bytespace-hero.png",
+      "problem": [
+        "The design required a pixel-perfect 1440px implementation that still scaled smoothly down to 375px mobile screens.",
+        "Complex UI elements like 3D floating cards and a 'liquid' search button needed to perform well without causing layout shifts or ruining Lighthouse scores."
+      ],
+      "built": [
+        "Built a visual-diff script using Playwright and pixelmatch, ensuring the live code remained within 1.87% pixel variance of the original Figma frames.",
+        "Scaled complex hero collages purely with CSS math (using `tan(atan2(...))`) so they resize perfectly without relying on JavaScript resize listeners.",
+        "Implemented floating 3D shapes using CSS keyframes and a 'goo' SVG filter for the search button, wrapped in a prefers-reduced-motion check for accessibility.",
+        "Optimized LCP by fading in the hero headline starting from opacity 0.01 instead of 0, bypassing Chrome's transparent element penalty."
+      ],
+      "images": [
+        {
+          "shotLabel": "Course Grid",
+          "caption": "Dynamic course filtering and grid layout with accessible focus states.",
+          "src": "https://i.ibb.co.com/BKBShnrQ/byte-course-section.png"
+        },
+        {
+          "shotLabel": "Testimonial Section",
+          "caption": "Swipeable testimonial cards that scale fluidly without JavaScript layout shifts.",
+          "src": "https://i.ibb.co.com/G4zHssJh/byte-testimonial-section.png"
+        },
+        {
+          "shotLabel": "Register Page",
+          "caption": "Accessible forms with dynamic validation and screen reader announcements.",
+          "src": "https://i.ibb.co.com/qLHfqQQy/byte-reg.png"
+        }
+      ],
+      "change": [
+        "Connect the UI-only authentication forms to a live backend (the hooks are ready)."
+      ]
+    },
+    {
+      "slug": "school-of-gen-z",
+      "index": 5,
+      "title": "School of Gen Z",
+      "claim": "Marketing site for an upcoming full-stack Learning Management System.",
+      "meta": [
+        "SOLO BUILD",
+        "MARKETING SITE + LMS (WIP)",
+        "REACT · NODE · EXPRESS · MONGODB",
+        "2026"
+      ],
+      "externalHref": "https://school-of-gen-z.vercel.app/",
+      "externalLabel": "SCHOOL OF GEN Z",
+      "statusLabel": "STATUS: MARKETING LIVE / LMS IN DEV",
+      "heroShotLabel": "Hero: School of Gen Z landing page",
+      "heroCaption": "The live marketing site showcasing upcoming courses and platform features.",
+      "heroImage": "https://i.ibb.co.com/bRFzSqBK/School-hero.png",
+      "problem": [
+        "The brand needed an immediate public presence to attract students and build interest while the complex backend of the LMS is actively being built.",
+        "The architecture requires a seamless transition from a fast, static marketing funnel into a secure, dynamic student portal."
+      ],
+      "built": [
+        "A responsive marketing frontend built in React and deployed on Vercel to establish the brand identity and outline the course catalog.",
+        "Currently architecting the underlying MERN stack backend (MongoDB, Express, Node.js) to support distinct user roles (admin, instructor, student).",
+        "Designing the database schema for course enrollment, video module progress tracking, and secure authentication."
+      ],
+      "images": [
+        {
+          "shotLabel": "Course Catalog",
+          "caption": "Marketing view of the upcoming learning tracks.",
+          "src": "https://i.ibb.co.com/jkqQLRz0/school-1.png"
+        },
+        {
+          "shotLabel": "Platform Features",
+          "caption": "Highlighting the tools and resources for students.",
+          "src": "https://i.ibb.co.com/WWMrTqyZ/school-2.png"
+        }
+      ],
+      "change": [
+        "Launch the interactive student dashboard and video module player.",
+        "Connect the frontend to the Node.js API to enable live user registration, secure login, and course enrollment."
+      ]
+    },
+    {
+      "slug": "redlife",
+      "index": 6,
+      "title": "RedLife",
+      "claim": "A national blood donation network for Bangladesh. Live donor matching.",
+      "meta": [
+        "SOLO BUILD",
+        "FULL STACK (NEXT.JS + EXPRESS)",
+        "NEXT.JS 16 · BETTER AUTH · MONGODB · STRIPE",
+        "2026"
+      ],
+      "externalHref": "https://red-life.vercel.app/",
+      "externalLabel": "REDLIFE",
+      "statusLabel": "STATUS: LIVE",
+      "heroShotLabel": "Hero: RedLife dashboard and request board",
+      "heroCaption": "The live donation request board connecting patients with active donors.",
+      "heroImage": "https://i.ibb.co.com/jdcWzcq/redlife-hero.png",
+      "problem": [
+        "Finding blood donors in an emergency requires filtering by exact blood group across all 64 districts and 490+ upazilas in Bangladesh.",
+        "A flat list isn't enough; the platform needs a triaged workflow (pending, in progress, done) managed by volunteers and admins."
+      ],
+      "built": [
+        "A role-based dashboard (Donor, Volunteer, Admin) where every new user is an active donor, and admins control the status of live requests.",
+        "Separated the architecture into a Next.js 16 App Router frontend and an Express API backend, secured with Better Auth sessions and short-lived JWTs.",
+        "Built a donor search tool that filters by exact location and exports the results directly to a downloadable PDF using jspdf.",
+        "Integrated Stripe Checkout in test mode to accept funding contributions, tracked via an admin stat dashboard."
+      ],
+      "images": [
+        {
+          "shotLabel": "Donation Requests",
+          "caption": "The live donation request board connecting patients with active donors.",
+          "src": "https://i.ibb.co.com/kgYH1B92/redlife-req.png"
+        },
+        {
+          "shotLabel": "My Donations",
+          "caption": "Donor dashboard tracking personal donation history and status.",
+          "src": "https://i.ibb.co.com/V0PHR1N8/redlife-donations.png"
+        },
+        {
+          "shotLabel": "Funding Platform",
+          "caption": "Integrated Stripe Checkout for platform contributions.",
+          "src": "https://i.ibb.co.com/tMqMjHTz/redlife-fund.png"
+        },
+        {
+          "shotLabel": "Admin Dashboard",
+          "caption": "Charts and metrics tracking donors, funding, and daily requests.",
+          "src": "https://i.ibb.co.com/h6pgLkK/redlife-admin.png"
+        }
+      ],
+      "change": [
+        "Implement SMS notifications so donors get pinged instantly when an urgent request matches their district and blood type."
+      ]
+    }
 ]
