@@ -238,5 +238,49 @@
       "change": [
         "Implement SMS notifications so donors get pinged instantly when an urgent request matches their district and blood type."
       ]
+    },
+    {
+      "slug": "kitbash",
+      "index": 7,
+      "title": "Kitbash",
+      "claim": "Neo-brutalist marketplace for design and dev kits. Buy, remix, ship.",
+      "meta": [
+        "SOLO BUILD",
+        "NEXT.JS 16 · REACT 19 · TAILWIND V4 · GSAP · FIREBASE",
+        "2026"
+      ],
+      "externalHref": "https://kitbash-blond.vercel.app",
+      "externalLabel": "KITBASH",
+      "statusLabel": "STATUS: LIVE",
+      "heroShotLabel": "Hero: Kitbash landing page with the interactive kit stage",
+      "heroCaption": "The hero kit card, with live theme swatches.",
+      "heroImage": "https://ik.imagekit.io/himelahmed/kitbash-hero.png",
+      "problem": [
+        "Makers lose days on blank canvases. They need ready kits they can ship fast.",
+        "Marketplaces look bland and alike. This one needed a bold identity."
+      ],
+      "built": [
+        "Catalog with category chips, search, price filter, and sorting.",
+        "Seller Studio with a live card preview that updates as you type.",
+        "Firebase Auth (Google and email) with Firestore for user kits.",
+        "Neo-brutalist system: 3px borders, hard shadows, GSAP motion."
+      ],
+      "images": [
+        {
+          "shotLabel": "Kit detail page",
+          "caption": "Gallery, license specs, and purchase actions.",
+          "src": "https://ik.imagekit.io/himelahmed/kitbash-kit.png"
+        },
+        {
+          "shotLabel": "Seller Studio",
+          "caption": "Publish form beside a live preview.",
+          "src": "https://ik.imagekit.io/himelahmed/kitbash-addkit.png"
+        },
+        {
+          "shotLabel": "Call to action",
+          "caption": "Closing section pushing makers to browse or publish.",
+          "src": "https://ik.imagekit.io/himelahmed/kitbash-cta.png"
+        }
+      ]
     }
 ]

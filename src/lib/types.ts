@@ -20,7 +20,7 @@ export interface ProjectSummary {
 
 export interface CaseStudyImage {
   shotLabel: string;
-  caption: string;
+  caption: string [];
   src?: string;
 }
 

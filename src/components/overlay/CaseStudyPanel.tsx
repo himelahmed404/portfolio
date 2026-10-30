@@ -100,11 +100,21 @@ export function CaseStudyPanel({
       <div className="mb-2.5 font-mono text-[11px] font-medium tracking-[0.14em] text-teal-500">
         WHAT I&apos;D CHANGE
       </div>
-      {study.change.map((p, idx) => (
-        <p key={idx} className={`m-0 mb-9 text-base leading-[1.65] text-ink-300 text-pretty ${idx > 0 ? "mt-3.5" : ""}`}>
-          {p}
-        </p>
-      ))}
+      {study.change?.length ? (
+        <>
+          <div className="mb-2.5 font-mono text-[11px] font-medium tracking-[0.14em] text-teal-500">
+            WHAT I&apos;D CHANGE
+          </div>
+          {study.change.map((p, idx, arr) => (
+            <p
+              key={idx}
+              className={`m-0 text-base leading-[1.65] text-ink-300 text-pretty ${idx > 0 ? "mt-3.5" : ""} ${idx === arr.length - 1 ? "mb-9" : ""}`}
+            >
+              {p}
+            </p>
+          ))}
+        </>
+      ) : null}
 
       <nav className="flex items-center justify-between gap-4 border-t border-ink-600 pt-5 font-mono text-[11px] font-medium tracking-[0.14em]">
         <button

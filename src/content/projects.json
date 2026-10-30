@@ -75,5 +75,18 @@
     "statusLabel": "LIVE",
     "status": "live",
     "stack": ["NEXT.JS", "EXPRESS", "MONGODB", "BETTER AUTH", "STRIPE"]
-  }
+  },
+  {
+  "slug": "kitbash",
+  "title": "Kitbash",
+  "claim": "Neo-brutalist marketplace for design and dev kits. Buy, remix, ship.",
+  "role": "Solo full-stack build — marketplace catalog, seller studio with live preview, Firebase auth and Firestore sync.",
+  "image": "https://ik.imagekit.io/himelahmed/kitbash-hero.png",
+  "shotLabel": "Kitbash landing page and hero kit stage",
+  "externalLabel": "KITBASH",
+  "externalHref": "https://kitbash-blond.vercel.app",
+  "statusLabel": "LIVE",
+  "status": "live",
+  "stack": ["NEXT.JS", "REACT", "TAILWIND", "GSAP", "FIREBASE"]
+}
 ]
