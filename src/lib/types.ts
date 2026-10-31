@@ -20,7 +20,7 @@ export interface ProjectSummary {
 
 export interface CaseStudyImage {
   shotLabel: string;
-  caption: string [];
+  caption: string;
   src?: string;
 }
 
@@ -40,7 +40,7 @@ export interface CaseStudy {
   problem: string[];
   built: string[];
   images: CaseStudyImage[];
-  change: string[];
+  change?: string[];
 }
 
 export interface Writeup {

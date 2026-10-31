@@ -113,19 +113,21 @@ export function CaseStudyFull({ study, allStudies }: { study: CaseStudy; allStud
         </div>
       </div>
 
-      <Reveal className="mt-12 max-w-[70ch] rounded-xl border border-ink-600 bg-ink-700 p-6">
-        <div className="mb-3 font-mono text-[11px] font-medium tracking-[0.14em] text-ink-400">
-          WHAT I&apos;D CHANGE
-        </div>
-        {study.change.map((p, idx) => (
-          <p
-            key={idx}
-            className={`m-0 text-base leading-[1.65] text-pretty ${idx > 0 ? "mt-3" : ""} ${idx === 0 ? "text-ink-100" : "text-ink-300"}`}
-          >
-            {p}
-          </p>
-        ))}
-      </Reveal>
+      {study.change?.length ? (
+        <Reveal className="mt-12 max-w-[70ch] rounded-xl border border-ink-600 bg-ink-700 p-6">
+          <div className="mb-3 font-mono text-[11px] font-medium tracking-[0.14em] text-ink-400">
+            WHAT I&apos;D CHANGE
+          </div>
+          {study.change.map((p, idx) => (
+            <p
+              key={idx}
+              className={`m-0 text-base leading-[1.65] text-pretty ${idx > 0 ? "mt-3" : ""} ${idx === 0 ? "text-ink-100" : "text-ink-300"}`}
+            >
+              {p}
+            </p>
+          ))}
+        </Reveal>
+      ) : null}
 
       <Reveal
         className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-ink-600 pt-5 font-mono text-[11px] font-medium tracking-[0.14em]"
