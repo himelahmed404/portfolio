@@ -10,7 +10,7 @@
     "statusLabel": "STATUS: LIVE",
     "heroShotLabel": "Hero: the quote screen with an uploaded model and its price",
     "heroCaption": "Upload screen showing the model size, volume, material choice, and price.",
-    "heroImage": "https://i.ibb.co.com/zhKJxG87/Toolify-Hero.png",
+    "heroImage": "https://ik.imagekit.io/himelahmed/Toolify-Hero.png",
     "problem": [
       "Quoting by hand on Messenger was slow, and slow quotes lose customers.",
       "The STL file already holds every number a price needs. Nobody was reading it."
@@ -22,9 +22,9 @@
       "The browser prices the file so the customer sees a number right away. The server reads the same file again to check that number. A 200k triangle model takes under a second."
     ],
     "images": [
-      { "shotLabel": "Upload → quote, price and time visible", "caption": "The quote screen, with weight and print time worked out from the file.", "src": "https://i.ibb.co.com/TqMYF3jQ/Pasted-image.png" },
-      { "shotLabel": "Admin order queue with states", "caption": "Order states: quoted, accepted, printing, collected.", "src": "https://i.ibb.co.com/rKKppMpr/Pasted-image-3.png" },
-      { "shotLabel": "Rate table the shop edits", "caption": "Material and margin rates, editable without a deploy.", "src": "https://i.ibb.co.com/PvXpZpbc/Pasted-image-4.png" }
+      { "shotLabel": "Upload → quote, price and time visible", "caption": "The quote screen, with weight and print time worked out from the file.", "src": "https://ik.imagekit.io/himelahmed/toolify-upload-pricing.png" },
+      { "shotLabel": "Admin order queue with states", "caption": "Order states: quoted, accepted, printing, collected.", "src": "https://ik.imagekit.io/himelahmed/toolify-admin-orders.png" },
+      { "shotLabel": "Rate table the shop edits", "caption": "Material and margin rates, editable without a deploy.", "src": "https://ik.imagekit.io/himelahmed/toolify-admin-config.png" }
     ],
     "change": [
       "Move all file reading to the server, behind a job queue, so the price cannot be faked.",
@@ -41,7 +41,7 @@
     "statusLabel": "DEMO ON REQUEST",
     "heroShotLabel": "Hero: live request being matched on the map",
     "heroCaption": "A live patient request with symptoms, a map pin, and the doctors who were called.",
-    "heroImage": "https://i.ibb.co.com/fdy4MzVk/medigo.jpg",
+    "heroImage": "https://ik.imagekit.io/himelahmed/medigo.jpg",
     "problem": [
       "A normal doctor list shows who exists. It does not show who is free right now.",
       "Being free has to be live data, not a fixed field in a table.",
@@ -72,7 +72,7 @@
     "statusLabel": "STATUS: PRE-LAUNCH BUILD",
     "heroShotLabel": "Hero: the admin triage queue",
     "heroCaption": "The case queue, sorted by urgency, type, and state.",
-    "heroImage": "https://i.ibb.co.com/SDf7wgb0/Pasted-image.png",
+    "heroImage": "https://ik.imagekit.io/himelahmed/nba-cyberCell-hero.png",
     "problem": [
       "Reports came in as plain messages. There was no shared record to hand over or update.",
       "The women reporting are upset and read Bangla. The form, the advice, and the helpline numbers had to be Bangla from the start, not translated later."
@@ -85,8 +85,8 @@
       "File upload with a size limit per file, next to advice to take screenshots before blocking, so the proof is not lost."
     ],
     "images": [
-      { "shotLabel": "Report submission form", "caption": "The Bangla report form.", "src": "https://i.ibb.co.com/wrBkhmbG/medigoo2.png" },
-      { "shotLabel": "Legal help page", "caption": "What the law says, and what steps a reporter can take.", "src": "https://i.ibb.co.com/BHbBrk5K/cyber4.png" }
+      { "shotLabel": "Report submission form", "caption": "The Bangla report form.", "src": "https://ik.imagekit.io/himelahmed/cybercell-report-form.png" },
+      { "shotLabel": "Legal help page", "caption": "What the law says, and what steps a reporter can take.", "src": "https://ik.imagekit.io/himelahmed/cybercell-lawsection-of-bd.png" }
     ],
     "change": [
       "Make the case log append-only, and tie each entry to the hash of the one before it. Then an edit to history shows up.",
@@ -95,192 +95,181 @@
       "Rate-limit the form. An open form with no account is also an open door for spam."
     ]
   },
-    {
-      "slug": "bytespace",
-      "index": 4,
-      "title": "ByteSpace",
-      "claim": "Pixel-perfect, animated frontend build. 98+ Lighthouse scores.",
-      "meta": [
-        "SOLO BUILD",
-        "FRONTEND ASSESSMENT",
-        "NEXT.JS 16 · TAILWIND V4 · MOTION",
-        "2026"
-      ],
-      "externalHref": "https://bytespace-himel.vercel.app/",
-      "externalLabel": "BYTESPACE",
-      "statusLabel": "STATUS: SHIPPED",
-      "heroShotLabel": "Hero: ByteSpace landing page at 1440px",
-      "heroCaption": "The landing page, verified against the Figma design with an automated pixel diff.",
-      "heroImage": "https://i.ibb.co.com/KzGN17SZ/bytespace-hero.png",
-      "problem": [
-        "The design required a pixel-perfect 1440px implementation that still scaled smoothly down to 375px mobile screens.",
-        "Complex UI elements like 3D floating cards and a 'liquid' search button needed to perform well without causing layout shifts or ruining Lighthouse scores."
-      ],
-      "built": [
-        "Built a visual-diff script using Playwright and pixelmatch, ensuring the live code remained within 1.87% pixel variance of the original Figma frames.",
-        "Scaled complex hero collages purely with CSS math (using `tan(atan2(...))`) so they resize perfectly without relying on JavaScript resize listeners.",
-        "Implemented floating 3D shapes using CSS keyframes and a 'goo' SVG filter for the search button, wrapped in a prefers-reduced-motion check for accessibility.",
-        "Optimized LCP by fading in the hero headline starting from opacity 0.01 instead of 0, bypassing Chrome's transparent element penalty."
-      ],
-      "images": [
-        {
-          "shotLabel": "Course Grid",
-          "caption": "Dynamic course filtering and grid layout with accessible focus states.",
-          "src": "https://i.ibb.co.com/BKBShnrQ/byte-course-section.png"
-        },
-        {
-          "shotLabel": "Testimonial Section",
-          "caption": "Swipeable testimonial cards that scale fluidly without JavaScript layout shifts.",
-          "src": "https://i.ibb.co.com/G4zHssJh/byte-testimonial-section.png"
-        },
-        {
-          "shotLabel": "Register Page",
-          "caption": "Accessible forms with dynamic validation and screen reader announcements.",
-          "src": "https://i.ibb.co.com/qLHfqQQy/byte-reg.png"
-        }
-      ],
-      "change": [
-        "Connect the UI-only authentication forms to a live backend (the hooks are ready)."
-      ]
-    },
-    {
-      "slug": "school-of-gen-z",
-      "index": 5,
-      "title": "School of Gen Z",
-      "claim": "Marketing site for an upcoming full-stack Learning Management System.",
-      "meta": [
-        "SOLO BUILD",
-        "MARKETING SITE + LMS (WIP)",
-        "REACT · NODE · EXPRESS · MONGODB",
-        "2026"
-      ],
-      "externalHref": "https://school-of-gen-z.vercel.app/",
-      "externalLabel": "SCHOOL OF GEN Z",
-      "statusLabel": "STATUS: MARKETING LIVE / LMS IN DEV",
-      "heroShotLabel": "Hero: School of Gen Z landing page",
-      "heroCaption": "The live marketing site showcasing upcoming courses and platform features.",
-      "heroImage": "https://i.ibb.co.com/bRFzSqBK/School-hero.png",
-      "problem": [
-        "The brand needed an immediate public presence to attract students and build interest while the complex backend of the LMS is actively being built.",
-        "The architecture requires a seamless transition from a fast, static marketing funnel into a secure, dynamic student portal."
-      ],
-      "built": [
-        "A responsive marketing frontend built in React and deployed on Vercel to establish the brand identity and outline the course catalog.",
-        "Currently architecting the underlying MERN stack backend (MongoDB, Express, Node.js) to support distinct user roles (admin, instructor, student).",
-        "Designing the database schema for course enrollment, video module progress tracking, and secure authentication."
-      ],
-      "images": [
-        {
-          "shotLabel": "Course Catalog",
-          "caption": "Marketing view of the upcoming learning tracks.",
-          "src": "https://i.ibb.co.com/jkqQLRz0/school-1.png"
-        },
-        {
-          "shotLabel": "Platform Features",
-          "caption": "Highlighting the tools and resources for students.",
-          "src": "https://i.ibb.co.com/WWMrTqyZ/school-2.png"
-        }
-      ],
-      "change": [
-        "Launch the interactive student dashboard and video module player.",
-        "Connect the frontend to the Node.js API to enable live user registration, secure login, and course enrollment."
-      ]
-    },
-    {
-      "slug": "redlife",
-      "index": 6,
-      "title": "RedLife",
-      "claim": "A national blood donation network for Bangladesh. Live donor matching.",
-      "meta": [
-        "SOLO BUILD",
-        "FULL STACK (NEXT.JS + EXPRESS)",
-        "NEXT.JS 16 · BETTER AUTH · MONGODB · STRIPE",
-        "2026"
-      ],
-      "externalHref": "https://red-life.vercel.app/",
-      "externalLabel": "REDLIFE",
-      "statusLabel": "STATUS: LIVE",
-      "heroShotLabel": "Hero: RedLife dashboard and request board",
-      "heroCaption": "The live donation request board connecting patients with active donors.",
-      "heroImage": "https://i.ibb.co.com/jdcWzcq/redlife-hero.png",
-      "problem": [
-        "Finding blood donors in an emergency requires filtering by exact blood group across all 64 districts and 490+ upazilas in Bangladesh.",
-        "A flat list isn't enough; the platform needs a triaged workflow (pending, in progress, done) managed by volunteers and admins."
-      ],
-      "built": [
-        "A role-based dashboard (Donor, Volunteer, Admin) where every new user is an active donor, and admins control the status of live requests.",
-        "Separated the architecture into a Next.js 16 App Router frontend and an Express API backend, secured with Better Auth sessions and short-lived JWTs.",
-        "Built a donor search tool that filters by exact location and exports the results directly to a downloadable PDF using jspdf.",
-        "Integrated Stripe Checkout in test mode to accept funding contributions, tracked via an admin stat dashboard."
-      ],
-      "images": [
-        {
-          "shotLabel": "Donation Requests",
-          "caption": "The live donation request board connecting patients with active donors.",
-          "src": "https://i.ibb.co.com/kgYH1B92/redlife-req.png"
-        },
-        {
-          "shotLabel": "My Donations",
-          "caption": "Donor dashboard tracking personal donation history and status.",
-          "src": "https://i.ibb.co.com/V0PHR1N8/redlife-donations.png"
-        },
-        {
-          "shotLabel": "Funding Platform",
-          "caption": "Integrated Stripe Checkout for platform contributions.",
-          "src": "https://i.ibb.co.com/tMqMjHTz/redlife-fund.png"
-        },
-        {
-          "shotLabel": "Admin Dashboard",
-          "caption": "Charts and metrics tracking donors, funding, and daily requests.",
-          "src": "https://i.ibb.co.com/h6pgLkK/redlife-admin.png"
-        }
-      ],
-      "change": [
-        "Implement SMS notifications so donors get pinged instantly when an urgent request matches their district and blood type."
-      ]
-    },
-    {
-      "slug": "kitbash",
-      "index": 7,
-      "title": "Kitbash",
-      "claim": "Neo-brutalist marketplace for design and dev kits. Buy, remix, ship.",
-      "meta": [
-        "SOLO BUILD",
-        "NEXT.JS 16 · REACT 19 · TAILWIND V4 · GSAP · FIREBASE",
-        "2026"
-      ],
-      "externalHref": "https://kitbash-blond.vercel.app",
-      "externalLabel": "KITBASH",
-      "statusLabel": "STATUS: LIVE",
-      "heroShotLabel": "Hero: Kitbash landing page with the interactive kit stage",
-      "heroCaption": "The hero kit card, with live theme swatches.",
-      "heroImage": "https://ik.imagekit.io/himelahmed/kitbash-hero.png",
-      "problem": [
-        "Makers lose days on blank canvases. They need ready kits they can ship fast.",
-        "Marketplaces look bland and alike. This one needed a bold identity."
-      ],
-      "built": [
-        "Catalog with category chips, search, price filter, and sorting.",
-        "Seller Studio with a live card preview that updates as you type.",
-        "Firebase Auth (Google and email) with Firestore for user kits.",
-        "Neo-brutalist system: 3px borders, hard shadows, GSAP motion."
-      ],
-      "images": [
-        {
-          "shotLabel": "Kit detail page",
-          "caption": "Gallery, license specs, and purchase actions.",
-          "src": "https://ik.imagekit.io/himelahmed/kitbash-kit.png"
-        },
-        {
-          "shotLabel": "Seller Studio",
-          "caption": "Publish form beside a live preview.",
-          "src": "https://ik.imagekit.io/himelahmed/kitbash-addkit.png"
-        },
-        {
-          "shotLabel": "Call to action",
-          "caption": "Closing section pushing makers to browse or publish.",
-          "src": "https://ik.imagekit.io/himelahmed/kitbash-cta.png"
-        }
-      ]
-    }
+  {
+    "slug": "bytespace",
+    "index": 4,
+    "title": "ByteSpace",
+    "claim": "Pixel-perfect, animated frontend build. 98+ Lighthouse scores.",
+    "meta": ["SOLO BUILD", "FRONTEND ASSESSMENT", "NEXT.JS 16 · TAILWIND V4 · MOTION", "2026"],
+    "externalHref": "https://bytespace-himel.vercel.app/",
+    "externalLabel": "BYTESPACE",
+    "statusLabel": "STATUS: SHIPPED",
+    "heroShotLabel": "Hero: ByteSpace landing page at 1440px",
+    "heroCaption": "The landing page, verified against the Figma design with an automated pixel diff.",
+    "heroImage": "https://ik.imagekit.io/himelahmed/bytespace-hero.png",
+    "problem": [
+      "The design required a pixel-perfect 1440px implementation that still scaled smoothly down to 375px mobile screens.",
+      "Complex UI elements like 3D floating cards and a 'liquid' search button needed to perform well without causing layout shifts or ruining Lighthouse scores."
+    ],
+    "built": [
+      "Built a visual-diff script using Playwright and pixelmatch, ensuring the live code remained within 1.87% pixel variance of the original Figma frames.",
+      "Scaled complex hero collages purely with CSS math (using `tan(atan2(...))`) so they resize perfectly without relying on JavaScript resize listeners.",
+      "Implemented floating 3D shapes using CSS keyframes and a 'goo' SVG filter for the search button, wrapped in a prefers-reduced-motion check for accessibility.",
+      "Optimized LCP by fading in the hero headline starting from opacity 0.01 instead of 0, bypassing Chrome's transparent element penalty."
+    ],
+    "images": [
+      { "shotLabel": "Course Grid", "caption": "Dynamic course filtering and grid layout with accessible focus states.", "src": "https://ik.imagekit.io/himelahmed/byte-course-section.png" },
+      { "shotLabel": "Testimonial Section", "caption": "Swipeable testimonial cards that scale fluidly without JavaScript layout shifts.", "src": "https://ik.imagekit.io/himelahmed/byte-testimonial-section.png" },
+      { "shotLabel": "Register Page", "caption": "Accessible forms with dynamic validation and screen reader announcements.", "src": "https://ik.imagekit.io/himelahmed/byte-reg.png" }
+    ],
+    "change": [
+      "Connect the UI-only authentication forms to a live backend (the hooks are ready)."
+    ]
+  },
+  {
+    "slug": "school-of-gen-z",
+    "index": 5,
+    "title": "School of Gen Z",
+    "claim": "Marketing site for an upcoming full-stack Learning Management System.",
+    "meta": ["SOLO BUILD", "MARKETING SITE", "REACT · NODE · EXPRESS · MONGODB", "2026"],
+    "externalHref": "https://school-of-gen-z.vercel.app/",
+    "externalLabel": "SCHOOL OF GEN Z",
+    "statusLabel": "STATUS: MARKETING LIVE",
+    "heroShotLabel": "Hero: School of Gen Z landing page",
+    "heroCaption": "The live marketing site showcasing upcoming courses and platform features.",
+    "heroImage": "https://ik.imagekit.io/himelahmed/School-hero.png",
+    "problem": [
+      "The brand needed an immediate public presence to attract students and build interest while the complex backend of the LMS is actively being built.",
+      "The architecture requires a seamless transition from a fast, static marketing funnel into a secure, dynamic student portal."
+    ],
+    "built": [
+      "A responsive marketing frontend built in React and deployed on Vercel to establish the brand identity and outline the course catalog.",
+      "Currently architecting the underlying MERN stack backend (MongoDB, Express, Node.js) to support distinct user roles (admin, instructor, student).",
+      "Designing the database schema for course enrollment, video module progress tracking, and secure authentication."
+    ],
+    "images": [
+      { "shotLabel": "Course Catalog", "caption": "Marketing view of the upcoming learning tracks.", "src": "https://ik.imagekit.io/himelahmed/school--1.png" },
+      { "shotLabel": "Platform Features", "caption": "Highlighting the tools and resources for students.", "src": "https://ik.imagekit.io/himelahmed/school-2.png" }
+    ],
+    "change": [
+      "Launch the interactive student dashboard and video module player.",
+      "Connect the frontend to the Node.js API to enable live user registration, secure login, and course enrollment."
+    ]
+  },
+  {
+    "slug": "redlife",
+    "index": 6,
+    "title": "RedLife",
+    "claim": "A national blood donation network for Bangladesh. Live donor matching.",
+    "meta": ["SOLO BUILD", "FULL STACK (NEXT.JS + EXPRESS)", "NEXT.JS 16 · BETTER AUTH · MONGODB · STRIPE", "2026"],
+    "externalHref": "https://red-life.vercel.app/",
+    "externalLabel": "REDLIFE",
+    "statusLabel": "STATUS: LIVE",
+    "heroShotLabel": "Hero: RedLife dashboard and request board",
+    "heroCaption": "The live donation request board connecting patients with active donors.",
+    "heroImage": "https://ik.imagekit.io/himelahmed/redlife-hero.png",
+    "problem": [
+      "Finding blood donors in an emergency requires filtering by exact blood group across all 64 districts and 490+ upazilas in Bangladesh.",
+      "A flat list isn't enough; the platform needs a triaged workflow (pending, in progress, done) managed by volunteers and admins."
+    ],
+    "built": [
+      "A role-based dashboard (Donor, Volunteer, Admin) where every new user is an active donor, and admins control the status of live requests.",
+      "Separated the architecture into a Next.js 16 App Router frontend and an Express API backend, secured with Better Auth sessions and short-lived JWTs.",
+      "Built a donor search tool that filters by exact location and exports the results directly to a downloadable PDF using jspdf.",
+      "Integrated Stripe Checkout in test mode to accept funding contributions, tracked via an admin stat dashboard."
+    ],
+    "images": [
+      { "shotLabel": "Donation Requests", "caption": "The live donation request board connecting patients with active donors.", "src": "https://ik.imagekit.io/himelahmed/redlife-req.png" },
+      { "shotLabel": "My Donations", "caption": "Donor dashboard tracking personal donation history and status.", "src": "https://ik.imagekit.io/himelahmed/redlife-donations.png" },
+      { "shotLabel": "Funding Platform", "caption": "Integrated Stripe Checkout for platform contributions.", "src": "https://ik.imagekit.io/himelahmed/redlife-fund.png" },
+      { "shotLabel": "Admin Dashboard", "caption": "Charts and metrics tracking donors, funding, and daily requests.", "src": "https://ik.imagekit.io/himelahmed/redlife-admin.png" }
+    ],
+    "change": [
+      "Implement SMS notifications so donors get pinged instantly when an urgent request matches their district and blood type."
+    ]
+  },
+  {
+    "slug": "kitbash",
+    "index": 7,
+    "title": "Kitbash",
+    "claim": "Neo-brutalist marketplace for design and dev kits. Buy, remix, ship.",
+    "meta": ["SOLO BUILD", "NEXT.JS 16 · REACT 19 · TAILWIND V4 · GSAP · FIREBASE", "2026"],
+    "externalHref": "https://kitbash-blond.vercel.app",
+    "externalLabel": "KITBASH",
+    "statusLabel": "STATUS: LIVE",
+    "heroShotLabel": "Hero: Kitbash landing page with the interactive kit stage",
+    "heroCaption": "The hero kit card, with live theme swatches.",
+    "heroImage": "https://ik.imagekit.io/himelahmed/kitbash-hero.png",
+    "problem": [
+      "Makers lose days on blank canvases. They need ready kits they can ship fast.",
+      "Marketplaces look bland and alike. This one needed a bold identity."
+    ],
+    "built": [
+      "Catalog with category chips, search, price filter, and sorting.",
+      "Seller Studio with a live card preview that updates as you type.",
+      "Firebase Auth (Google and email) with Firestore for user kits.",
+      "Neo-brutalist system: 3px borders, hard shadows, GSAP motion."
+    ],
+    "images": [
+      { "shotLabel": "Kit detail page", "caption": "Gallery, license specs, and purchase actions.", "src": "https://ik.imagekit.io/himelahmed/kitbash-kit.png" },
+      { "shotLabel": "Seller Studio", "caption": "Publish form beside a live preview.", "src": "https://ik.imagekit.io/himelahmed/kitbash-addkit.png" },
+      { "shotLabel": "Call to action", "caption": "Closing section pushing makers to browse or publish.", "src": "https://ik.imagekit.io/himelahmed/kitbash-cta.png" }
+    ]
+  },
+  {
+    "slug": "school-of-gen-z-lms",
+    "index": 8,
+    "title": "School of Gen Z (LMS)",
+    "claim": "Dedicated LMS dashboard and course management system.",
+    "meta": ["SOLO BUILD", "REACT · NODE · EXPRESS · MONGODB", "2026"],
+    "externalLabel": "NO LIVE LINK",
+    "statusLabel": "STATUS: IN DEVELOPMENT",
+    "heroShotLabel": "Hero: Student dashboard view",
+    "heroCaption": "The core student dashboard for tracking enrolled courses and progress.",
+    "heroImage": "https://ik.imagekit.io/himelahmed/schoolOfGenZ-lms-student-dashboard.png",
+    "problem": [
+      "Transitioning from the marketing frontend to a fully functional student ecosystem.",
+      "Requires role-based infrastructure for students to view content, teachers to upload courses, and admins to manage users."
+    ],
+    "built": [
+      "Developed the interactive student dashboard to track progress and view enrolled content.",
+      "Built out the teacher course upload pipeline for managing video modules.",
+      "Currently actively working on the admin panel to oversee platform data."
+    ],
+    "images": [
+      { "shotLabel": "Student Course Page", "caption": "Detailed view of course curriculum and video modules.", "src": "https://ik.imagekit.io/himelahmed/schoolOfGenZ-lms-student-course-page.png" },
+      { "shotLabel": "Teacher Course Upload", "caption": "Interface for instructors to create and upload new courses.", "src": "https://ik.imagekit.io/himelahmed/schoolOfGenZ-lms-teacher-course-upload.png" },
+      { "shotLabel": "Admin Dashboard", "caption": "Work-in-progress administrative control panel.", "src": "https://ik.imagekit.io/himelahmed/schoolOfGenZ-lms-admin-dashboard.png" }
+    ],
+    "change": [
+      "Complete the admin panel integration.",
+      "Refine security and role-based guards before live rollout."
+    ]
+  },
+  {
+    "slug": "european-it-lms",
+    "index": 9,
+    "title": "European IT LMS",
+    "claim": "Enterprise LMS web portal synced with a mobile application.",
+    "meta": ["TEAM BUILD", "LEAD WEB & BACKEND", "NEXT.JS · NODE · EXPRESS · POSTGRESQL · PRISMA", "2026"],
+    "externalLabel": "DEMO ON REQUEST",
+    "statusLabel": "STATUS: IN DEVELOPMENT",
+    "heroShotLabel": "Hero: Student dashboard",
+    "heroCaption": "The active student portal and learning dashboard.",
+    "heroImage": "https://ik.imagekit.io/himelahmed/europeanIT-LMS-Student-dashboard.png",
+    "problem": [
+      "The system requires a unified backend that serves both a robust web portal and a Flutter mobile application seamlessly.",
+      "Data needs to be strongly typed and structured using Prisma and PostgreSQL to handle complex institutional relationships."
+    ],
+    "built": [
+      "Architected the relational database schema using PostgreSQL and Prisma.",
+      "Built the REST API layer with Node and Express to initialize the mobile app and handle core requests.",
+      "Developed the web-based student dashboard for tracking course data."
+    ],
+    "images": [],
+    "change": [
+      "Complete the remaining backend endpoints for admin reporting.",
+      "Finalize real-time synchronization testing with the Flutter team."
+    ]
+  }
 ]

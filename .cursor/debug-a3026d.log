@@ -1,0 +1,2 @@
+{"sessionId":"a3026d","runId":"post-fix-setup","hypothesisId":"A","location":"fix:upgrade","message":"Upgraded Next and cleared .next cache","data":{"nextVersion":"16.4.6","clearedNext":true},"timestamp":1794497458863}
+{"sessionId":"a3026d","runId":"post-fix","hypothesisId":"A","location":"src/app/layout.tsx:fonts","message":"layout fonts module evaluated successfully","data":{"hasArchivo":true,"hasInstrument":true,"hasGeistMono":true,"nextHint":"16.4.6+"},"timestamp":1794497976892}
