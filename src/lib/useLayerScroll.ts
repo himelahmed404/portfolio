@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useLenis } from "lenis/react";
 
 const Z_PER_LAYER = [0, 0.2, 0.45, 0.6, 0.75, 0.9, 1];
 
@@ -12,6 +13,7 @@ const Z_PER_LAYER = [0, 0.2, 0.45, 0.6, 0.75, 0.9, 1];
  * layout box against the viewport directly, same approach either way.
  */
 export function useLayerScroll(count: number, bandHeight: number) {
+  const lenis = useLenis();
   const sectionsRef = useRef<(HTMLElement | null)[]>(Array(count).fill(null));
   const refCallbacksRef = useRef<Map<number, (el: HTMLElement | null) => void>>(new Map());
   const naturalTopsRef = useRef<number[]>([]);
@@ -77,6 +79,12 @@ export function useLayerScroll(count: number, bandHeight: number) {
     });
   }, [measure]);
 
+  useLenis(
+    useCallback(() => {
+      measure();
+    }, [measure])
+  );
+
   const goTo = useCallback(
     (i: number) => {
       const s = sectionsRef.current[i];
@@ -84,13 +92,22 @@ export function useLayerScroll(count: number, bandHeight: number) {
       if (naturalTopsRef.current.length !== sectionsRef.current.length) measureTops();
       const y = naturalTopsRef.current[i] - i * bandHeight + 2;
       const max = document.documentElement.scrollHeight - window.innerHeight;
+      const targetY = Math.min(Math.max(0, y), Math.max(0, max));
       const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      window.scrollTo({
-        top: Math.min(Math.max(0, y), Math.max(0, max)),
-        behavior: reduced ? "auto" : "smooth",
-      });
+
+      if (lenis && !reduced) {
+        lenis.scrollTo(targetY, {
+          duration: 1.2,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        });
+      } else {
+        window.scrollTo({
+          top: targetY,
+          behavior: reduced ? "auto" : "smooth",
+        });
+      }
     },
-    [bandHeight, measureTops]
+    [bandHeight, measureTops, lenis]
   );
 
   useEffect(() => {

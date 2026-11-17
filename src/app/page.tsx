@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import siteData from "@/content/site.json";
 import type { SiteContent } from "@/lib/types";
 import { Rail } from "@/components/layout/Rail";
+import { ScrollProgress } from "@/components/layout/ScrollProgress";
 import { LayerSection, BAND_HEIGHT } from "@/components/layout/LayerSection";
 import { useLayerScroll } from "@/lib/useLayerScroll";
 import { DocOverlayProvider } from "@/components/overlay/DocOverlayContext";
@@ -42,6 +43,7 @@ export default function Home() {
   return (
     <DocOverlayProvider>
       <div className="layout:pl-18">
+        <ScrollProgress />
         <Rail z={z} active={active} onJump={goTo} />
 
         <main>

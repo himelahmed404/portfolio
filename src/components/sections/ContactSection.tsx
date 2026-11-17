@@ -6,8 +6,12 @@ import type { SiteContent } from "@/lib/types";
 export function ContactSection({ site }: { site: SiteContent }) {
   return (
     <div className="mx-auto w-full max-w-[900px] mt-8 sm:mt-10">
-      <Reveal className="mb-5 font-mono text-[11px] font-medium tracking-[0.14em] text-teal-500">
-        CONTACT · PRINT COMPLETE
+      <Reveal className="mb-5 flex items-center gap-2 font-mono text-[11px] font-medium tracking-[0.14em] text-teal-400">
+        <span className="relative flex h-2 w-2">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal-400 opacity-75" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-teal-400" />
+        </span>
+        <span>CONTACT · PRINT COMPLETE</span>
       </Reveal>
       <Reveal delay={0.06}>
         <h2 className="m-0 mb-4 font-display text-[clamp(30px,4.4vw,44px)] font-semibold leading-[1.08] tracking-[-0.02em] text-ink-100 text-pretty">
@@ -33,16 +37,16 @@ export function ContactSection({ site }: { site: SiteContent }) {
       </Reveal>
       <Reveal
         delay={0.24}
-        className="mt-10 flex flex-wrap justify-between gap-x-8 gap-y-4 border-t border-ink-600 pt-[18px] font-mono text-[11px] font-medium tracking-[0.14em] text-ink-400"
+        className="mt-10 flex flex-wrap justify-between gap-x-8 gap-y-4 border-t border-ink-600/80 pt-[18px] font-mono text-[11px] font-medium tracking-[0.14em] text-ink-400"
       >
         <span>
           {site.name.toUpperCase()} · {site.location.toUpperCase()}
         </span>
         <span>{site.phone}</span>
-        <Link href="/frame" className="text-ink-400 hover:text-teal-500">
-          Photography
+        <Link href="/frame" className="text-ink-400 transition-colors hover:text-teal-400">
+          Photography →
         </Link>
-        <span>07 LAYERS · Z 1.00 · PRINT COMPLETE</span>
+        <span className="text-teal-400/80">07 LAYERS · Z 1.00 · PRINT COMPLETE</span>
       </Reveal>
     </div>
   );

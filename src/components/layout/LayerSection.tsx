@@ -11,6 +11,11 @@ const ACCENT_CLASS = {
   brass: "bg-brass-500",
 };
 
+const ACCENT_GLOW = {
+  teal: "shadow-[0_0_8px_rgba(79,151,163,0.7)]",
+  brass: "shadow-[0_0_8px_rgba(194,161,101,0.7)]",
+};
+
 interface LayerSectionProps {
   index: number;
   code: string;
@@ -53,7 +58,7 @@ export function LayerSection({
     <section
       ref={sectionRef}
       aria-label={ariaLabel}
-      className={background === "ink900" ? "bg-ink-900" : "bg-ink-800"}
+      className={`${background === "ink900" ? "bg-ink-900" : "bg-ink-800"} transition-[box-shadow] duration-300`}
       style={{
         position: "sticky",
         top,
@@ -64,16 +69,39 @@ export function LayerSection({
     >
       <button
         onClick={onBandClick}
-        className="relative z-[2] flex h-7 w-full items-center gap-3 border-0 border-b border-ink-600 bg-ink-800 px-4 text-left shadow-[0_1px_0_rgba(0,0,0,0.4)] sm:px-7"
+        aria-label={`Go to layer ${code}`}
+        className={`group relative z-[2] flex h-7 w-full cursor-pointer items-center gap-3 border-0 border-b border-ink-600 bg-ink-800/95 backdrop-blur-sm px-4 text-left transition-colors duration-200 hover:bg-ink-700/80 sm:px-7 ${
+          active
+            ? "shadow-[0_2px_12px_rgba(0,0,0,0.4)] border-ink-500"
+            : "shadow-[0_1px_0_rgba(0,0,0,0.4)]"
+        }`}
       >
-        <span className={`h-3.5 w-[3px] flex-none ${ACCENT_CLASS[accent]}`} />
-        <span className="font-mono text-[11px] font-medium tracking-[0.14em] text-ink-300">{code}</span>
         <span
-          className={`hidden overflow-hidden text-ellipsis whitespace-nowrap font-body text-[11px] layout:block ${active ? "text-ink-100" : "text-ink-400"}`}
+          className={`h-3.5 w-[3px] flex-none rounded-full transition-all duration-300 ${ACCENT_CLASS[accent]} ${
+            active ? ACCENT_GLOW[accent] : "opacity-80"
+          }`}
+        />
+        <span
+          className={`font-mono text-[11px] font-medium tracking-[0.14em] transition-colors duration-200 ${
+            active ? "text-ink-100" : "text-ink-300 group-hover:text-ink-200"
+          }`}
+        >
+          {code}
+        </span>
+        <span
+          className={`hidden overflow-hidden text-ellipsis whitespace-nowrap font-body text-[11px] transition-colors duration-200 layout:block ${
+            active ? "text-ink-100 font-medium" : "text-ink-400 group-hover:text-ink-300"
+          }`}
         >
           {name}
         </span>
-        <span className="ml-auto font-mono text-[11px] font-medium tracking-[0.14em] text-ink-400">{zLabel}</span>
+        <span
+          className={`ml-auto font-mono text-[11px] font-medium tracking-[0.14em] tabular-nums transition-colors duration-200 ${
+            active ? "text-teal-400" : "text-ink-400 group-hover:text-ink-300"
+          }`}
+        >
+          {zLabel}
+        </span>
       </button>
       <div
         data-scroll-body

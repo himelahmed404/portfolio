@@ -25,12 +25,12 @@ export function FrameImage({
 
   return (
     <figure
-      className={`m-0 w-full min-w-0 ${solo ? "md:w-[58%]" : "flex-none md:w-auto md:flex-[var(--ar)_1_0]"}`}
+      className={`group m-0 w-full min-w-0 ${solo ? "md:w-[58%]" : "flex-none md:w-auto md:flex-[var(--ar)_1_0]"}`}
       style={{ "--ar": photo.w / photo.h } as CSSProperties}
     >
-      <Reveal duration={0.4} delay={delay}>
+      <Reveal duration={0.48} delay={delay}>
         <div
-          className="relative w-full overflow-hidden rounded-xl bg-ink-800"
+          className="relative w-full overflow-hidden rounded-xl border border-ink-700/60 bg-ink-800 shadow-[0_8px_24px_rgba(0,0,0,0.3)] transition-[border-color,box-shadow] duration-500 group-hover:border-teal-500/40 group-hover:shadow-[0_16px_40px_rgba(0,0,0,0.5),0_0_20px_rgba(79,151,163,0.1)]"
           style={{ aspectRatio: `${photo.w} / ${photo.h}` }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element -- inline base64 LQIP, not an optimizable asset */}
@@ -45,10 +45,10 @@ export function FrameImage({
               src={photo.src}
               alt={photo.alt}
               fill
-              quality={72}
+              quality={80}
               sizes={SIZES[rowType]}
               loading="lazy"
-              className="object-cover"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             />
           )}
         </div>

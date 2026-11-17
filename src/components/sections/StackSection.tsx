@@ -17,7 +17,7 @@ export function StackSection() {
         <Reveal className="mb-4.5 font-mono text-[11px] font-medium tracking-[0.14em] text-teal-500">STACK</Reveal>
         <div className="flex flex-col gap-4">
           {stackGroups.map((group, i) => (
-            <Reveal key={group.label} delay={0.06 + i * 0.06}>
+            <Reveal key={group.label} delay={0.06 + i * 0.05}>
               <div className="mb-2 font-mono text-[11px] font-medium tracking-[0.14em] text-ink-400">
                 {group.label}
               </div>
@@ -39,20 +39,26 @@ export function StackSection() {
           {experience.map((item, i) => (
             <Reveal
               key={item.title}
-              delay={0.06 + i * 0.06}
-              className={`border-b border-ink-600 py-4 ${i === 0 ? "pt-0" : ""}`}
+              delay={0.06 + i * 0.05}
+              className={`group border-b border-ink-600/70 py-4 px-3 -mx-3 rounded-lg transition-colors duration-200 hover:bg-ink-700/40 ${
+                i === 0 ? "pt-2" : ""
+              }`}
             >
               <div className="flex flex-wrap items-baseline justify-between gap-4">
-                <h4 className="m-0 font-display text-[21px] font-medium leading-[1.3] text-ink-100">{item.title}</h4>
-                <span className="flex-none font-mono text-[11px] font-medium tracking-[0.14em] text-ink-400">
+                <h4 className="m-0 font-display text-[21px] font-medium leading-[1.3] text-ink-100 transition-colors duration-200 group-hover:text-white">
+                  {item.title}
+                </h4>
+                <span className="flex-none font-mono text-[11px] font-medium tracking-[0.14em] text-ink-400 transition-colors duration-200 group-hover:text-teal-400">
                   {item.date}
                 </span>
               </div>
-              <p className="m-0 mt-1.5 text-base leading-[1.6] text-ink-300 text-pretty">{item.description}</p>
+              <p className="m-0 mt-1.5 text-base leading-[1.6] text-ink-300 text-pretty transition-colors duration-200 group-hover:text-ink-200">
+                {item.description}
+              </p>
             </Reveal>
           ))}
         </div>
-        <Reveal delay={0.06 + experience.length * 0.06} className="mt-5">
+        <Reveal delay={0.06 + experience.length * 0.05} className="mt-5">
           <div className="mb-2.5 font-mono text-[11px] font-medium tracking-[0.14em] text-ink-400">
             CERTIFICATIONS
           </div>

@@ -9,19 +9,15 @@ const wipe: Variants = {
 };
 
 /**
- * The site's one signature reveal: a clip-path wipe from the bottom edge,
- * as if the content were being deposited under it — not a fade-and-rise
- * (the single clearest tell of a generated site).
- *
- * The clip-path lives on an inner motion.div, observed by a plain outer
- * div. Watching the clipped element directly would never work: it starts
- * clipped to zero height, so IntersectionObserver sees an empty rect and
- * never reports it as visible, regardless of scroll position.
+ * The site's signature 3D print deposit reveal: a precision clip-path wipe
+ * from the bottom edge, depositing content onto the plate as you scroll.
+ * Tuned with luxury cubic-bezier easing [0.16, 1, 0.3, 1] for smooth,
+ * deliberate momentum scrolling.
  */
 export function Reveal({
   children,
   delay = 0,
-  duration = 0.28,
+  duration = 0.42,
   className = "",
 }: {
   children?: ReactNode;
@@ -31,7 +27,7 @@ export function Reveal({
 }) {
   const shouldReduceMotion = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.2 });
+  const inView = useInView(ref, { once: true, amount: 0.15, margin: "0px 0px -30px 0px" });
 
   return (
     <div ref={ref}>
@@ -42,7 +38,7 @@ export function Reveal({
         variants={wipe}
         transition={{
           duration: shouldReduceMotion ? 0 : duration,
-          ease: [0.22, 1, 0.36, 1],
+          ease: [0.16, 1, 0.3, 1],
           delay: shouldReduceMotion ? 0 : delay,
         }}
       >

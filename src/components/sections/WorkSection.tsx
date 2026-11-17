@@ -8,8 +8,8 @@ const projects = projectsData as ProjectSummary[];
 export function WorkSection() {
   return (
     <div className="mx-auto flex max-w-300 flex-col gap-6">
-      <div className="flex flex-wrap items-baseline justify-between gap-6 border-b border-ink-600 pb-3.5">
-        <Reveal className="font-mono text-[11px] font-medium tracking-[0.14em] text-teal-500">
+      <div className="flex flex-wrap items-baseline justify-between gap-6 border-b border-ink-600/80 pb-3.5">
+        <Reveal className="font-mono text-[11px] font-medium tracking-[0.14em] text-teal-400">
           SELECTED WORK / {projects.length.toString().padStart(2, "0")}
         </Reveal>
         <Reveal className="text-sm leading-normal text-ink-300">
@@ -18,7 +18,7 @@ export function WorkSection() {
       </div>
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, i) => (
-          <Reveal key={project.slug} delay={i * 0.06}>
+          <Reveal key={project.slug} delay={(i % 3) * 0.07}>
             <ProjectCard project={project} />
           </Reveal>
         ))}
