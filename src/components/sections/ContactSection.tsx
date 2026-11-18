@@ -37,7 +37,7 @@ export function ContactSection({ site }: { site: SiteContent }) {
         </LinkButton>
         <LinkButton
           variant="secondary"
-          href={site.facebook ?? "https://facebook.com/himelahmed404"}
+          href={site.facebook ?? "https://facebook.com/0xW1zard"}
           target="_blank"
           rel="noopener noreferrer"
         >

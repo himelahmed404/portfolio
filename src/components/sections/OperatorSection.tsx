@@ -4,7 +4,7 @@ import { useRef, useCallback, type MouseEvent } from "react";
 import Link from "next/link";
 import { motion, useMotionValue, useSpring, useReducedMotion, useMotionTemplate } from "framer-motion";
 import { Reveal } from "@/components/ui/Reveal";
-import { ShotPlaceholder } from "@/components/ui/ShotPlaceholder";
+import { OperatorPortrait } from "@/components/sections/OperatorPortrait";
 import type { SiteContent } from "@/lib/types";
 
 const STATS = [
@@ -67,16 +67,14 @@ export function OperatorSection({ site }: { site: SiteContent }) {
             {/* Dynamic specular light sheen */}
             <motion.div
               aria-hidden="true"
-              className="pointer-events-none absolute -inset-px z-20 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              className="pointer-events-none absolute -inset-px z-30 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
               style={{ background: spotBg }}
             />
 
-            <ShotPlaceholder
+            <OperatorPortrait
               src="/profile/Himel.png"
               alt={`Portrait of ${site.name}`}
-              label="Add public/himel.png"
-              aspect="4/5"
-              rounded="lg"
+              className="border-0 bg-transparent rounded-none"
             />
           </motion.div>
         </div>
