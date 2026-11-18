@@ -83,6 +83,7 @@ export interface SiteContent {
   phone: string;
   github: string;
   linkedin: string;
+  facebook?: string;
   domain: string;
 }
 

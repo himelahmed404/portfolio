@@ -18,7 +18,7 @@ export function WorkSection() {
       </div>
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, i) => (
-          <Reveal key={project.slug} delay={(i % 3) * 0.07}>
+          <Reveal key={project.slug} delay={(i % 3) * 0.07} className="h-full relative hover:z-30 transition-[z-index]">
             <ProjectCard project={project} />
           </Reveal>
         ))}

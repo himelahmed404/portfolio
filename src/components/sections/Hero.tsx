@@ -2,9 +2,43 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Reveal } from "@/components/ui/Reveal";
-import { LinkButton } from "@/components/ui/Button";
+import { LinkButton } from "@/components/ui/PortfolioButton";
 import { TicTacToe } from "@/components/sections/TicTacToe";
 import type { SiteContent } from "@/lib/types";
+
+function InteractiveTitle({ text }: { text: string }) {
+  const shouldReduceMotion = useReducedMotion();
+
+  if (shouldReduceMotion) {
+    return (
+      <h1 className="m-0 font-display text-[clamp(40px,6.4vw,72px)] font-semibold leading-[1.02] tracking-[-0.02em] text-ink-100">
+        {text}
+      </h1>
+    );
+  }
+
+  return (
+    <h1 className="m-0 flex flex-wrap gap-x-4 font-display text-[clamp(40px,6.4vw,72px)] font-semibold leading-[1.02] tracking-[-0.02em] text-ink-100 select-none">
+      {text.split(" ").map((word, wIdx) => (
+        <span key={wIdx} className="inline-flex">
+          {word.split("").map((char, cIdx) => (
+            <motion.span
+              key={cIdx}
+              whileHover={{
+                y: -6,
+                color: "#7db8c2",
+                transition: { type: "spring", stiffness: 450, damping: 14 },
+              }}
+              className="inline-block cursor-default transition-colors"
+            >
+              {char}
+            </motion.span>
+          ))}
+        </span>
+      ))}
+    </h1>
+  );
+}
 
 export function Hero({ site }: { site: SiteContent }) {
   const shouldReduceMotion = useReducedMotion();
@@ -20,9 +54,7 @@ export function Hero({ site }: { site: SiteContent }) {
           </div>
         </Reveal>
         <Reveal delay={0.18}>
-          <h1 className="m-0 font-display text-[clamp(40px,6.4vw,72px)] font-semibold leading-[1.02] tracking-[-0.02em] text-ink-100">
-            {site.name.toUpperCase()}
-          </h1>
+          <InteractiveTitle text={site.name.toUpperCase()} />
         </Reveal>
         <Reveal delay={0.26} className="my-5 h-[2px] w-32 bg-gradient-to-r from-teal-500 to-teal-300 shadow-[0_0_10px_rgba(79,151,163,0.5)] rounded-full" />
         <Reveal delay={0.32}>
@@ -38,7 +70,7 @@ export function Hero({ site }: { site: SiteContent }) {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: shouldReduceMotion ? 0 : 0.4, delay: fadeDelay(460) }}
-          className="mt-8 flex flex-wrap gap-3"
+          className="mt-8 flex flex-wrap gap-3 overflow-visible relative z-20"
         >
           <LinkButton variant="primary" href={`mailto:${site.email}`}>
             Email me

@@ -5,6 +5,7 @@ import siteData from "@/content/site.json";
 import type { FramePhoto, FrameRowData, SiteContent } from "@/lib/types";
 import { Reveal } from "@/components/ui/Reveal";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
+import { AmbientGlow } from "@/components/ui/AmbientGlow";
 import { FrameGallery } from "@/components/frame/FrameGallery";
 
 const { photos, rows } = frameData as { photos: FramePhoto[]; rows: FrameRowData[] };
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
 export default function FramePage() {
   return (
     <div className="mx-auto w-full max-w-300 px-3 pt-6 pb-24 md:px-6 md:pt-10 md:pb-40">
+      <AmbientGlow />
       <ScrollProgress />
       <Reveal>
         <Link href="/#operator" scroll={false} className="text-sm leading-normal text-ink-100 hover:text-teal-400 transition-colors">

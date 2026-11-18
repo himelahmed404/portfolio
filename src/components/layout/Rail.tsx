@@ -58,7 +58,9 @@ export function Rail({
                 onMouseEnter={() => setHoveredIndex(i)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.08 }}
+                  whileTap={{ scale: 0.94 }}
                   onClick={() => onJump(i)}
                   aria-label={`Jump to ${LAYER_NAMES[i]}`}
                   className="group relative flex cursor-pointer flex-col items-center gap-1 border-0 bg-transparent px-3 py-1.5 focus:outline-none"
@@ -88,7 +90,7 @@ export function Rail({
                   >
                     {label}
                   </span>
-                </button>
+                </motion.button>
 
                 {/* Floating tooltip on hover */}
                 <AnimatePresence>

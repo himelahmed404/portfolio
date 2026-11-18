@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import writeupsData from "@/content/writeups.json";
 import type { Writeup } from "@/lib/types";
@@ -10,14 +12,16 @@ const writeups = writeupsData as Writeup[];
 
 export function BreakSection() {
   const { openDoc } = useDocOverlay();
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
   return (
     <div className="mx-auto grid max-w-[1200px] grid-cols-1 items-start gap-8 layout:grid-cols-2 layout:gap-12">
       <div>
-        <Reveal className="mb-5 font-mono text-[11px] font-medium tracking-[0.14em] text-teal-500">
-          DISCLOSURE + WRITEUPS
+        <Reveal className="mb-5 flex items-center gap-2 font-mono text-[11px] font-medium tracking-[0.14em] text-teal-400">
+          <span className="h-1.5 w-1.5 rounded-full bg-teal-400 shadow-[0_0_6px_rgba(79,151,163,0.8)]" />
+          <span>DISCLOSURE + WRITEUPS</span>
         </Reveal>
-        <Reveal delay={0.06} className="group rounded-xl border border-ink-600 bg-ink-700/80 p-6 backdrop-blur-xs transition-[border-color,box-shadow] duration-300 hover:border-teal-500/50 hover:shadow-[0_12px_36px_rgba(0,0,0,0.35),0_0_20px_rgba(79,151,163,0.1)]">
+        <Reveal delay={0.06} className="group relative z-10 rounded-xl border border-ink-600 bg-ink-700/80 p-6 backdrop-blur-xs transition-[border-color,box-shadow,transform] duration-300 hover:border-teal-500/60 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(0,0,0,0.4),0_0_24px_rgba(79,151,163,0.12)]">
           <div className="mb-3.5 flex items-center gap-2.5">
             <span className="inline-flex items-center gap-1.5 rounded bg-ink-800 px-2 py-1 font-mono text-[11px] font-medium tracking-[0.14em] text-ink-300">
               <span className="relative flex h-2 w-2">
@@ -53,12 +57,25 @@ export function BreakSection() {
             @himelahmed404 ON MEDIUM
           </a>
         </Reveal>
-        <div data-lenis-prevent className="thin-scroll flex max-h-125 flex-col overflow-y-auto pr-2">
+        <div
+          data-lenis-prevent
+          onMouseLeave={() => setHoveredIdx(null)}
+          className="thin-scroll flex max-h-125 flex-col overflow-y-auto pr-2 relative"
+        >
           {writeups.map((w, i) => {
             const meta = [w.tag, w.readTime, w.date].filter(Boolean).join(" · ");
+            const isHovered = hoveredIdx === i;
+
             const content = (
               <>
-                <div className="mb-1.5 flex items-baseline gap-3">
+                {isHovered && (
+                  <motion.div
+                    layoutId="writeupRowHighlight"
+                    className="absolute inset-0 rounded-lg bg-ink-700/60 border border-teal-500/20 shadow-[0_4px_16px_rgba(0,0,0,0.2)] pointer-events-none"
+                    transition={{ type: "spring", stiffness: 450, damping: 30 }}
+                  />
+                )}
+                <div className="relative z-10 mb-1.5 flex items-baseline gap-3">
                   <span className="font-mono text-[11px] font-medium tracking-[0.14em] text-teal-400">
                     {String(w.index).padStart(2, "0")}
                   </span>
@@ -69,13 +86,21 @@ export function BreakSection() {
                     )}
                   </h4>
                 </div>
-                {w.dek && <p className="m-0 mb-2 ml-7.5 text-base leading-[1.6] text-ink-300 text-pretty transition-colors duration-200 group-hover:text-ink-200">{w.dek}</p>}
-                <span className="ml-7.5 font-mono text-[11px] font-medium tracking-[0.14em] text-ink-400">{meta}</span>
+                {w.dek && (
+                  <p className="relative z-10 m-0 mb-2 ml-7.5 text-base leading-[1.6] text-ink-300 text-pretty transition-colors duration-200 group-hover:text-ink-200">
+                    {w.dek}
+                  </p>
+                )}
+                <span className="relative z-10 ml-7.5 font-mono text-[11px] font-medium tracking-[0.14em] text-ink-400">
+                  {meta}
+                </span>
               </>
             );
-            const className = `group block w-full border-0 border-t border-ink-600/80 bg-transparent px-2 py-4.5 text-left rounded-lg transition-colors duration-200 hover:bg-ink-700/40 ${
-              i === writeups.length - 1 ? "border-b" : ""
-            }`;
+
+            const className = `group relative block w-full border-0 border-t border-ink-600/80 bg-transparent px-3 py-4 text-left rounded-lg transition-colors duration-150 ${
+              isHovered ? "z-10" : "z-1"
+            } ${i === writeups.length - 1 ? "border-b" : ""}`;
+
             return (
               <Reveal key={w.slug} delay={0.16 + i * 0.05}>
                 {w.externalHref ? (
@@ -83,12 +108,17 @@ export function BreakSection() {
                     href={w.externalHref}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onMouseEnter={() => setHoveredIdx(i)}
                     className={`${className} cursor-pointer`}
                   >
                     {content}
                   </a>
                 ) : (
-                  <button onClick={() => openDoc(w.slug)} className={`${className} cursor-pointer`}>
+                  <button
+                    onClick={() => openDoc(w.slug)}
+                    onMouseEnter={() => setHoveredIdx(i)}
+                    className={`${className} cursor-pointer`}
+                  >
                     {content}
                   </button>
                 )}

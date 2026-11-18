@@ -1,6 +1,7 @@
 import Link from "next/link";
+import { RiFacebookFill } from "@remixicon/react";
 import { Reveal } from "@/components/ui/Reveal";
-import { LinkButton } from "@/components/ui/Button";
+import { LinkButton } from "@/components/ui/PortfolioButton";
 import type { SiteContent } from "@/lib/types";
 
 export function ContactSection({ site }: { site: SiteContent }) {
@@ -21,7 +22,7 @@ export function ContactSection({ site }: { site: SiteContent }) {
       <Reveal delay={0.12} className="mb-8 max-w-[56ch] text-lg leading-[1.6] text-ink-300 text-pretty">
         Also taking freelance builds. Email goes straight to me — no form, nothing to lose your message.
       </Reveal>
-      <Reveal delay={0.18} className="flex flex-wrap gap-3">
+      <Reveal delay={0.18} className="flex flex-wrap gap-3 overflow-visible relative z-20">
         <LinkButton variant="primary" href={`mailto:${site.email}`}>
           {site.email}
         </LinkButton>
@@ -33,6 +34,14 @@ export function ContactSection({ site }: { site: SiteContent }) {
         </LinkButton>
         <LinkButton variant="secondary" href={site.linkedin} target="_blank" rel="noopener noreferrer">
           LinkedIn
+        </LinkButton>
+        <LinkButton
+          variant="secondary"
+          href={site.facebook ?? "https://facebook.com/himelahmed404"}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <RiFacebookFill className="h-4 w-4" aria-hidden="true" />
         </LinkButton>
       </Reveal>
       <Reveal

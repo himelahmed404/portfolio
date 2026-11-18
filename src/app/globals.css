@@ -17,6 +17,23 @@
   --color-verified: #6e9e7e;
   --color-wip: #b08a4e;
 
+  /* shadcn semantic tokens mapped to theme */
+  --color-background: #1e2124;
+  --color-foreground: #e7e5e2;
+  --color-primary: #4f97a3;
+  --color-primary-foreground: #1e2124;
+  --color-secondary: #30353a;
+  --color-secondary-foreground: #e7e5e2;
+  --color-muted: #262a2e;
+  --color-muted-foreground: #6b747c;
+  --color-accent: #30353a;
+  --color-accent-foreground: #e7e5e2;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+  --color-border: #3c4248;
+  --color-input: #3c4248;
+  --color-ring: #4f97a3;
+
   --font-display: var(--font-archivo), sans-serif;
   --font-body: var(--font-instrument), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), monospace;

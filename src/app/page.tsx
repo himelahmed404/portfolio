@@ -5,6 +5,7 @@ import siteData from "@/content/site.json";
 import type { SiteContent } from "@/lib/types";
 import { Rail } from "@/components/layout/Rail";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
+import { AmbientGlow } from "@/components/ui/AmbientGlow";
 import { LayerSection, BAND_HEIGHT } from "@/components/layout/LayerSection";
 import { useLayerScroll } from "@/lib/useLayerScroll";
 import { DocOverlayProvider } from "@/components/overlay/DocOverlayContext";
@@ -43,6 +44,7 @@ export default function Home() {
   return (
     <DocOverlayProvider>
       <div className="layout:pl-18">
+        <AmbientGlow />
         <ScrollProgress />
         <Rail z={z} active={active} onJump={goTo} />
 
